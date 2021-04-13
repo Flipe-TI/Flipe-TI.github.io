@@ -87,6 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 17px;
 }
 
 abbr[title],
@@ -552,6 +553,7 @@ pre code {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
+  background: #eeeeee;
 }
 
 @media (min-width: 576px) {
