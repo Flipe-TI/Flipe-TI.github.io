@@ -1,6 +1,6 @@
 # Flipe-TI.github.io
-Uma pagina para você conhecer um pouco sobre mim e um pouco do meu trabalho e hobbies =) <br />
-##Visualize também no link:<br />
+Uma pagina para você conhecer um pouco sobre mim e um pouco do meu trabalho e hobbies =) <br/>
+##Visualize também no link:
 <a href = "https://flipe-ti.github.io/" target="_blank">Flipe-TI Portfólio</a>
 #Redes Sociais
 <a href = "https://www.linkedin.com/in/felipe-silva-ti/" target="_blank">Linkedin</a>
