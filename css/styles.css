@@ -7494,6 +7494,7 @@ button.bg-dark:focus {
   margin-bottom: 0 !important;
 }
 
+
 .ml-0,
 .mx-0 {
   margin-left: 0 !important;
@@ -10111,5 +10112,45 @@ section.resume-section .resume-section-content {
     padding-right: 3rem;
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+}
+@media(max-width:485px){
+  h1, .h1 {
+    font-size: 5rem;
+  }
+}
+@media(max-width:405px){
+  h1, .h1 {
+    font-size: 4rem;
+  }
+}
+
+.title{
+  border-right: 3px solid rgba(0, 0, 0, 0.75);
+  margin-bottom: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typing-animation {
+  animation: blinkCursor 500ms steps(20) infinite normal,
+    typing 2s steps(20) 1s normal both;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4.8em;
+  }
+}
+
+@keyframes blinkCursor {
+  from {
+    border-right-color: rgba(0, 0, 0, 0.75);
+  }
+  to {
+    border-right-color: transparent;
   }
 }
