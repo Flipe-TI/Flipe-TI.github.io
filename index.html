@@ -32,6 +32,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interesses</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Projetos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certificados</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contato</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="download/Felipe Gabriel.pdf" download="Felipe Gabriel.pdf">Adote meu CV</a></li>
                 </ul>
             </div>
@@ -45,11 +46,12 @@
                         Felipe
                         <span class="text-primary typing-animation">Gabriel</span>
                     </h1>
-                    <div class="subheading mb-5">
+                    <div class="subheading mb-4">
                         Maracanaú - Ceará, Brasil, CEP 61945-080 · (85) 99980-8243 ·
                         <a href="mailto:felipe.suporteti@hotmail.com">felipe.suporteti@hotmail.com</a>
                     </div>
-                    <p class="lead mb-5">Um amante da tecnologia em constante evolução. Desenvolvedor WEB que adora minerar na WEB e tratar dados com python e obter insights com isso.</p>
+                    
+                    <p class="lead mb-4">Um amante da tecnologia em constante evolução. Desenvolvedor WEB que adora minerar na WEB e tratar dados com python e obter insights com isso.</p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/felipe-silva-ti/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/Flipe-TI" target="_blank"><i class="fab fa-github"></i></a>
@@ -63,6 +65,7 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Experiências</h2>
+                    <img class="loguinho"src="assets/img/exp.svg">
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Analista de Bussines Intelligence</h3>
@@ -99,6 +102,7 @@
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Educação</h2>
+                    <img class="loguinho"src="assets/img/educ.svg">
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Análise e Desenvolvimento de Sistemas</h3>
@@ -141,6 +145,7 @@
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Skills</h2>
+                    <img class="loguinho"src="assets/img/skills.svg">
                     <div class="subheading mb-3">Linguagens de programas e ferramentas de desenvolvimento</div>
                     <ul class="list-inline dev-icons">
                         <li class="list-inline-item"><i class="fab fa-html5"></i></li>
@@ -189,6 +194,7 @@
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interesses & Valores</h2>
+                    <img class="loguinho"src="assets/img/interests.svg">
                     <div class="subheading mb-3">Interesses</div>
                     <p>Com o objetivo de dar início em minha carreira no mercado de trabalho, venho priorizando
                         ser um profissional versátil, a priori com o intuito de conhecer as áreas e obter 
@@ -204,6 +210,7 @@
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Projetos</h2>
+                    <img class="loguinho"src="assets/img/projects.svg">
                     <br>
                     <ul class="fa-ul mb-0">
                         <li>
@@ -227,6 +234,7 @@
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Cetificados</h2>
+                    <img class="loguinho"src="assets/img/certification.svg">
                     <div>[Em breve!]</div>
                     <br>
                     <ul class="fa-ul mb-0">
@@ -248,26 +256,28 @@
             <section class="resume-section" id="contact">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Contato</h2>
+                    <img class="loguinho"src="assets/img/contact.svg">
                     <br>
                     <form method="POST" action="email.php">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Nome</label>
-                          <input class="form-control" type="text" placeholder="Nome" id="name" name="name">
+                          <label for="name">Nome:*</label>
+                          <input class="form-control" type="text" placeholder="Nome" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp" placeholder="Enter email">
+                          <label for="email">Email:*</label>
+                          <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp" placeholder="Email" required>
                         </div>
                 
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Assunto</label>
-                            <textarea class="form-control" id="assunto" name="name" rows="3"></textarea>
+                            <label for="assunto">Assunto:*</label>
+                            <textarea class="form-control" id="assunto" name="assunto" rows="3" required></textarea>
                         </div>
                         <div class="form-check">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Pode entrar em contato!</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                     </form>
                 </div>
                 
