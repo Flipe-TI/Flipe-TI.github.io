@@ -2445,13 +2445,13 @@ fieldset:disabled a.btn {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #9f4e2f;
-  border-color: #964a2c;
+  background-color: #007bd2;
+  border-color: #007bd2;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #9f4e2f;
-  border-color: #964a2c;
+  background-color: #007bd2;
+  border-color: #007bd2;
   box-shadow: 0 0 0 0.2rem rgba(199, 117, 86, 0.5);
 }
 .btn-primary.disabled, .btn-primary:disabled {
@@ -7613,6 +7613,7 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important;
+  display:contents;
 }
 
 .ml-5,
@@ -10153,4 +10154,10 @@ section.resume-section .resume-section-content {
   to {
     border-right-color: transparent;
   }
+}
+
+.loguinho{
+  width: 200px;
+  height:200px;
+  padding-left: 20px;
 }
