@@ -3,17 +3,91 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Felipe Gabriel</title>
+        <meta name="description" content="Felipe Gabriel - Analista de BI e Data Science. Especializado em Power BI, SQL, Python e ETL. Transformando dados em insights estratégicos." />
+        <meta name="author" content="Felipe Gabriel da Silva" />
+        <meta name="keywords" content="BI, Data Science, Power BI, SQL, Python, ETL, Analytics" />
+        <meta property="og:title" content="Felipe Gabriel - Analista de BI & Data Science" />
+        <meta property="og:description" content="Especializado em Power BI, SQL, Python. Transformando dados em insights estratégicos." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <title>Felipe Gabriel - Analista de BI & Data Science</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Google fonts - Otimizado-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;700;900&family=Muli:wght@400;700;800&display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Custom Styles -->
+        <link href="css/custom-styles.css" rel="stylesheet" />
+        <!-- AOS - Animate On Scroll -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+        <!-- Schema.org Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Felipe Gabriel da Silva",
+            "jobTitle": "Analista de BI - Pleno",
+            "url": "https://flipe-ti.github.io",
+            "image": "https://flipe-ti.github.io/assets/img/profile.jpg",
+            "sameAs": [
+                "https://www.linkedin.com/in/felipe-silva-ti/",
+                "https://github.com/Flipe-TI",
+                "https://www.instagram.com/flipe.dev/",
+                "https://wa.me/5585999808243"
+            ],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Lanlink Informática"
+            },
+            "alumniOf": [
+                {
+                    "@type": "EducationalOrganization",
+                    "name": "Universidade Estácio de Sá"
+                },
+                {
+                    "@type": "EducationalOrganization",
+                    "name": "Universidade Federal do Ceará"
+                },
+                {
+                    "@type": "EducationalOrganization",
+                    "name": "E.E.E.P. Salaberga Torquato Gomes de Matos"
+                }
+            ],
+            "knowsAbout": [
+                "Power BI",
+                "SQL",
+                "Python",
+                "ETL",
+                "Data Science",
+                "Apache Airflow",
+                "SSIS",
+                "Tableau",
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "PHP",
+                "Laravel",
+                "Git",
+                "Scrum"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Maracanaú",
+                "addressRegion": "Ceará",
+                "addressCountry": "BR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Personal Contact",
+                "telephone": "+55-85-99980-8243",
+                "email": "felipe.silva@felipegabriel.dev"
+            }
+        }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -32,10 +106,8 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interesses</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Projetos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certificados</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contato</a></li> -->
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://docs.google.com/document/d/1dPnuAkjASYDLIc5zyvyAPvRYhWd5wtSy/export?format=pdf" target="_blank">Adote meu CV</a></li>
-
-
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://docs.google.com/document/d/1dPnuAkjASYDLIc5zyvyAPvRYhWd5wtSy/export?format=pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-download mr-1"></i>Baixar CV</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,16 +120,19 @@
                         Felipe
                         <span class="text-primary typing-animation">Gabriel</span>
                     </h1>
-                    <div class="subheading mb-4">
-                        Maracanaú - Ceará, Brasil, CEP 61945-080 · (85) 99980-8243 ·
-                        <a href="mailto:felipe.silva@felipegabriel.dev">felipe.silva@felipegabriel.dev</a>
+                    <div class="subheading mb-4" itemscope itemtype="http://schema.org/Person">
+                        <span itemprop="name" style="display:none;">Felipe Gabriel da Silva</span>
+                        <span itemprop="jobTitle" style="display:none;">Analista de BI - Pleno</span>
+                        <span itemprop="workLocation" style="display:none;">Maracanaú, Ceará, Brasil</span>
+                        Maracanaú - Ceará, Brasil · <a href="tel:+5585999808243" itemprop="telephone">(85) 9 9980-8243</a> ·
+                        <a href="mailto:felipe@felipegabriel.dev" itemprop="email">felipe@felipegabriel.dev</a>
                     </div>
                     
-                    <p class="lead mb-4">Um analista de dados apaixonado por desafios complexos, especializado em transformar dados brutos em insights estratégicos. Com experiência em Power BI (PL-300), SQL, Python e Data Science, tenho um olhar analítico e foco em otimização de processos de ETL, desenvolvimento de dashboards interativos e aplicação de Inteligência Artificial (LLMs) para análise de dados. Estou sempre em busca de inovação, explorando novas tecnologias para potencializar a tomada de decisão e gerar impacto real</p>
+                    <p class="lead mb-4">Um analista de dados apaixonado por desafios complexos, especializado em transformar dados brutos em insights estratégicos. Com experiência em Power BI (PL-300), SQL, Python e Data Science, tenho um olhar analítico e foco em otimização de processos de ETL, desenvolvimento de dashboards interativos e aplicação de Inteligência Artificial (LLMs) para análise de dados. Estou sempre em busca de inovação, explorando novas tecnologias para potencializar a tomada de decisão e gerar impacto real.</p>
                     <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/felipe-silva-ti/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/Flipe-TI" target="_blank"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://www.instagram.com/flipe.dev/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/felipe-silva-ti/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Felipe Gabriel"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/Flipe-TI" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Felipe Gabriel"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://wa.me/5585999808243" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Felipe Gabriel"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </section>
@@ -65,60 +140,67 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Experiências</h2>
-                    <img class="loguinho" src="assets/img/exp.svg">
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <h2 class="mb-5">Experiências Profissionais</h2>
+                    <img class="loguinho" src="assets/img/exp.svg" alt="Ícone de experiência" loading="lazy">
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Analista de BI - Pleno</h3>
-                            <div class="subheading mb-3">Lanlink Informática</div>
-                            <p>Enfrentando processos de ETL lentos e a dificuldade na integração de múltiplas fontes de dados, fui designado para reestruturar esses processos críticos. Coordenei a otimização do ETL e implementei dashboards interativos em Power BI, o que reduziu o tempo de processamento em 30% e permitiu decisões mais ágeis e estratégicas.</p>
-                            <p><strong>Ferramentas utilizadas:</strong> Power BI, ETL, SQL, Python, Apache Airflow, SQL Server Integration Services (SSIS).</p>
+                            <h3 class="mb-0"><i class="fas fa-chart-line text-primary mr-2"></i>Analista de Dados</h3>
+                            <div class="subheading mb-3">Complexo Industrial e Portuário do Pecém - CIPP</div>
+                            <p>Desenvolvimento e otimização de soluções de Business Intelligence para o complexo portuário e industrial. Criação de dashboards executivos, análise de dados operacionais e implementação de processos ETL para suportar tomadas de decisão estratégica nas diferentes áreas do complexo.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">Power BI</span> <span class="badge badge-info">SQL</span> <span class="badge badge-info">Python</span> <span class="badge badge-info">ETL</span> <span class="badge badge-info">Data Analysis</span> <span class="badge badge-info">Apache Airflow</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2025 - Presente</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2025 - Presente</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Analista de BI - Júnior</h3>
+                            <h3 class="mb-0"><i class="fas fa-tachometer-alt text-primary mr-2"></i>Analista de BI - Pleno</h3>
                             <div class="subheading mb-3">Lanlink Informática</div>
-                            <p>Otimizei a granularidade dos dados para validação de KPI's em contratos, reduzindo o tempo de análise em 38% e aumentando a eficiência na gestão de indicadores.</p>
-                            <p><strong>Ferramentas utilizadas:</strong> Power BI, SQL, Python, SQL Server Integration Services (SSIS).</p>
+                            <p>Otimizei a granularidade dos dados para validação de KPI's em contratos, <strong>reduzindo o tempo de análise em 38%</strong> e aumentando a eficiência na gestão de indicadores. Implementei soluções robustas de BI com ETL otimizado e dashboards interativos.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">Power BI</span> <span class="badge badge-info">SQL</span> <span class="badge badge-info">Python</span> <span class="badge badge-info">SSIS</span> <span class="badge badge-info">Apache Airflow</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2023 - 2025</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2023 - 2025</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Técnico de BI Júnior</h3>
+                            <h3 class="mb-0"><i class="fas fa-database text-primary mr-2"></i>Técnico de BI Júnior</h3>
                             <div class="subheading mb-3">Lanlink Informática</div>
-                            <p>Implementei o Power BI para permitir self-service de relatórios, reduzindo em 50% a dependência da equipe técnica e melhorando a governança de dados em 43%.</p>
-                            <p><strong>Ferramentas utilizadas:</strong> Power BI, SQL, SSIS.</p>
+                            <p>Implementei o Power BI para permitir self-service de relatórios, <strong>reduzindo em 50% a dependência</strong> da equipe técnica e melhorando a governança de dados em 43%.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">Power BI</span> <span class="badge badge-info">SQL</span> <span class="badge badge-info">SSIS</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2021 - 2022</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2021 - 2022</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Consultor de BI Júnior</h3>
+                            <h3 class="mb-0"><i class="fas fa-briefcase text-primary mr-2"></i>Consultor de BI Júnior</h3>
                             <div class="subheading mb-3">Consultoria CS</div>
-                            <p>Desenvolvi soluções financeiras como DREs e DFCs através de dashboards no Power BI, aumentando a precisão das decisões estratégicas em 20%.</p>
-                            <p><strong>Ferramentas utilizadas:</strong> Power BI, Excel, SQL.</p>
+                            <p>Desenvolvi soluções financeiras como DREs e DFCs através de dashboards no Power BI, <strong>aumentando a precisão das decisões estratégicas em 20%</strong>.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">Power BI</span> <span class="badge badge-info">Excel</span> <span class="badge badge-info">SQL</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2020 - 2021</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2020 - 2021</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Estagiário de TI</h3>
+                            <h3 class="mb-0"><i class="fas fa-graduation-cap text-primary mr-2"></i>Estagiário de TI</h3>
                             <div class="subheading mb-3">Consultoria CS</div>
-                            <p>Contribuí para o desenvolvimento de sistemas de gestão e análise de dados, melhorando a eficiência operacional em 25%.</p>
-                            <p><strong>Ferramentas utilizadas:</strong> PHP, HTML5, CSS3, JavaScript, SQL, Excel, Power BI.</p>
+                            <p>Contribuí para o desenvolvimento de sistemas de gestão e análise de dados, <strong>melhorando a eficiência operacional em 25%</strong>.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">PHP</span> <span class="badge badge-info">HTML5</span> <span class="badge badge-info">CSS3</span> <span class="badge badge-info">JavaScript</span> <span class="badge badge-info">SQL</span> <span class="badge badge-info">Power BI</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2020 - 2020</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2020</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 experience-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Suporte Técnico em TI</h3>
-                            <div class="subheading mb-3">Softway Fibra LTDA.</div>
+                            <h3 class="mb-0"><i class="fas fa-headset text-primary mr-2"></i>Suporte Técnico em TI</h3>
+                            <div class="subheading mb-3">Softway Fibra LTDA</div>
                             <p>Durante esse período, realizei atendimento a clientes com problemas de conexões e outros problemas com tecnologia da informação por acesso remoto, chat e telefone. Além disso, adquiri conhecimento em FTTH, executei backups e manutenções no servidor da empresa (ANM-2000) e realizei alterações nos hardwares de hubs com soldas.</p>
+                            <p><strong>Ferramentas:</strong> <span class="badge badge-info">Suporte Técnico</span> <span class="badge badge-info">FTTH</span> <span class="badge badge-info">Hardware</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Julho 2018 - Janeiro 2019</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">Jul 2018 - Jan 2019</span></div>
                     </div>
                 </div>
             </section>
@@ -126,39 +208,37 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Educação</h2>
-                    <img class="loguinho"src="assets/img/educ.svg">
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <h2 class="mb-5">Formação Acadêmica</h2>
+                    <img class="loguinho" src="assets/img/educ.svg" alt="Ícone de educação" loading="lazy">
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 education-card" data-aos="fade-up">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Análise e Desenvolvimento de Sistemas</h3>
+                            <h3 class="mb-0"><i class="fas fa-graduation-cap text-primary mr-2"></i>Análise e Desenvolvimento de Sistemas</h3>
                             <div class="subheading mb-3">Universidade Estácio de Sá</div>
-                            <div>[Concluído]</div>
-                            <p>Dentre os conhecimentos abordados durante a graduação estão: SQL e modelagem de dados para estruturação de informações. Python com aplicação em Big Data e desenvolvimento de soluções rápidas e eficientes. Desenvolvimento web com HTML5, CSS e JavaScript. Engenharia de Software e práticas ágeis com Scrum. Inteligência Artificial e fundamentos de computação em nuvem.</p>
+                            <div class="badge badge-success mb-2">Concluído</div>
+                            <p>Dentre os conhecimentos abordados durante a graduação estão: <strong>SQL e modelagem de dados</strong> para estruturação de informações. <strong>Python</strong> com aplicação em Big Data e desenvolvimento de soluções rápidas e eficientes. Desenvolvimento web com <strong>HTML5, CSS e JavaScript</strong>. Engenharia de Software e práticas ágeis com <strong>Scrum</strong>. <strong>Inteligência Artificial</strong> e fundamentos de computação em nuvem.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2019</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2019</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 education-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Bacharel em Engenharia da Computação</h3>
-                            <div class="subheading mb-3">Universidade Federal do Ceará </div>
-                            <div>[Trancado]</div>
-                            <p>Dentre os conhecimentos abordados durante a graduação estão: Algoritmos e estruturas de dados, Lógica de programação, Arquitetura de computadores, Sistemas operacionais, Redes de computadores, Bancos de dados, Probabilidade e estatística, Matemática discreta
-                            </p>
+                            <h3 class="mb-0"><i class="fas fa-university text-primary mr-2"></i>Bacharel em Engenharia da Computação</h3>
+                            <div class="subheading mb-3">Universidade Federal do Ceará</div>
+                            <div class="badge badge-warning mb-2">Trancado</div>
+                            <p>Dentre os conhecimentos abordados durante a graduação estão: <strong>Algoritmos e estruturas de dados</strong>, Lógica de programação, Arquitetura de computadores, Sistemas operacionais, Redes de computadores, Bancos de dados, Probabilidade e estatística, Matemática discreta.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2019</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2019</span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between education-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Técnico em informática</h3>
+                            <h3 class="mb-0"><i class="fas fa-book text-primary mr-2"></i>Técnico em Informática</h3>
                             <div class="subheading mb-3">E.E.E.P. Salaberga Torquato Gomes de Matos</div>
-                            <div>[Concluído]</div>
-                            <p>Informática Básica; Lógica de Programação; Gestão e 
-                                Empreendedorismo; Sistemas Operacionais; Arquitetura e Manutenção 
-                                de Computadores; Estrutura de Dados, Redes de Computadores; 
-                                Fundamento de Banco de Dados; Técnica e Implementação de 
-                                Banco de Dados; POO (Java); Programação Web(PHP,MYSQL,JS,HTML5,CSS3). </p>
+                            <div class="badge badge-success mb-2">Concluído</div>
+                            <p>Informática Básica; Lógica de Programação; Gestão e Empreendedorismo; Sistemas Operacionais; Arquitetura e Manutenção de Computadores; Estrutura de Dados, Redes de Computadores; Fundamento de Banco de Dados; Técnica e Implementação de Banco de Dados; <strong>POO (Java)</strong>; <strong>Programação Web (PHP, MySQL, JS, HTML5, CSS3)</strong>.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2016 - 2018</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary font-weight-bold">2016 - 2018</span></div>
                     </div>
                 </div>
             </section>
@@ -166,50 +246,117 @@
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    <img class="loguinho"src="assets/img/skills.svg">
-                    <div class="subheading mb-3">Linguagens de programas e ferramentas de desenvolvimento</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-php"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-laravel"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-python"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-windows"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-linux"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-github"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-git"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-chart-bar"></i>
-                        
-                    </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Examinar demanda
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Planejar solução
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Iniciar projeto
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Aplicar métodos(SCRUM, CI & CO)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Implantação
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Projeto concluído e cliente satisfeito!
-                        </li>
-                    </ul>
+                    <h2 class="mb-5">Competências Técnicas</h2>
+                    <img class="loguinho" src="assets/img/skills.svg" alt="Ícone de habilidades" loading="lazy">
+                    
+                    <div class="mb-5" data-aos="fade-up">
+                        <h3 class="subheading mb-3">Business Intelligence & Data</h3>
+                        <div class="skill-badges">
+                            <span class="badge badge-pill badge-primary">Power BI</span>
+                            <span class="badge badge-pill badge-primary">Tableau</span>
+                            <span class="badge badge-pill badge-primary">SQL Server</span>
+                            <span class="badge badge-pill badge-primary">ETL</span>
+                            <span class="badge badge-pill badge-primary">SSIS</span>
+                            <span class="badge badge-pill badge-primary">Apache Airflow</span>
+                            <span class="badge badge-pill badge-primary">Data Warehouse</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="subheading mb-3">Linguagens de Programação</h3>
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item" title="Python"><i class="fab fa-python"></i></li>
+                            <li class="list-inline-item" title="SQL"><i class="fas fa-database"></i></li>
+                            <li class="list-inline-item" title="PHP"><i class="fab fa-php"></i></li>
+                            <li class="list-inline-item" title="JavaScript"><i class="fab fa-js-square"></i></li>
+                            <li class="list-inline-item" title="Java"><i class="fab fa-java"></i></li>
+                        </ul>
+                        <div class="skill-badges">
+                            <span class="badge badge-pill badge-success">Python</span>
+                            <span class="badge badge-pill badge-success">SQL</span>
+                            <span class="badge badge-pill badge-success">PHP</span>
+                            <span class="badge badge-pill badge-success">JavaScript</span>
+                            <span class="badge badge-pill badge-success">Java</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="subheading mb-3">Web Development</h3>
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item" title="HTML5"><i class="fab fa-html5"></i></li>
+                            <li class="list-inline-item" title="CSS3"><i class="fab fa-css3-alt"></i></li>
+                            <li class="list-inline-item" title="JavaScript"><i class="fab fa-js-square"></i></li>
+                            <li class="list-inline-item" title="Bootstrap"><i class="fab fa-bootstrap"></i></li>
+                            <li class="list-inline-item" title="Laravel"><i class="fab fa-laravel"></i></li>
+                        </ul>
+                        <div class="skill-badges">
+                            <span class="badge badge-pill badge-warning">HTML5</span>
+                            <span class="badge badge-pill badge-warning">CSS3</span>
+                            <span class="badge badge-pill badge-warning">Bootstrap</span>
+                            <span class="badge badge-pill badge-warning">Laravel</span>
+                            <span class="badge badge-pill badge-warning">Responsive Design</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="subheading mb-3">DevOps & Infraestrutura</h3>
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item" title="Git"><i class="fab fa-git"></i></li>
+                            <li class="list-inline-item" title="GitHub"><i class="fab fa-github"></i></li>
+                            <li class="list-inline-item" title="Linux"><i class="fab fa-linux"></i></li>
+                            <li class="list-inline-item" title="Windows"><i class="fab fa-windows"></i></li>
+                        </ul>
+                        <div class="skill-badges">
+                            <span class="badge badge-pill badge-info">Git</span>
+                            <span class="badge badge-pill badge-info">GitHub</span>
+                            <span class="badge badge-pill badge-info">Linux</span>
+                            <span class="badge badge-pill badge-info">Windows</span>
+                            <span class="badge badge-pill badge-info">CI/CD</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="subheading mb-3">Metodologias & Soft Skills</h3>
+                        <div class="skill-badges">
+                            <span class="badge badge-pill badge-secondary">Scrum</span>
+                            <span class="badge badge-pill badge-secondary">Kanban</span>
+                            <span class="badge badge-pill badge-secondary">Liderança</span>
+                            <span class="badge badge-pill badge-secondary">Comunicação</span>
+                            <span class="badge badge-pill badge-secondary">Análise Crítica</span>
+                            <span class="badge badge-pill badge-secondary">Problem Solving</span>
+                            <span class="badge badge-pill badge-secondary">Colaboração</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="subheading mb-3">Workflow & Processo</h3>
+                        <ul class="fa-ul mb-0">
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Análise de Demanda:</strong> Compreender requisitos do negócio e stakeholders
+                            </li>
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Planejamento:</strong> Desenhar solução tecnológica e arquitetura
+                            </li>
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Execução:</strong> Desenvolvimento com boas práticas e código limpo
+                            </li>
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Metodologias Ágeis:</strong> Aplicar SCRUM, CI/CD e otimizações contínuas
+                            </li>
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Implantação:</strong> Deploy com mínimo risco e testes rigorosos
+                            </li>
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span>
+                                <strong>Sucesso do Cliente:</strong> Entrega de valor e satisfação garantida
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <hr class="m-0" />
@@ -217,101 +364,166 @@
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interesses & Valores</h2>
-                    <img class="loguinho"src="assets/img/interests.svg">
-                    <div class="subheading mb-3">Interesses</div>
-                    <p>Com o objetivo de alavancar minha carreira na área de dados, busco me tornar um profissional completo, explorando diferentes vertentes do BI, Data Science e otimização de processos de ETL. Sempre fui apaixonado por estatísticas, e meu foco a longo prazo é me especializar em Engenharia de Dados e Data Science, áreas que me desafiam e permitem trabalhar com grandes volumes de dados para extrair insights valiosos. Inicialmente, meu objetivo é adquirir uma experiência ampla e duradoura, identificando as áreas que melhor combinam com minhas habilidades e que podem gerar resultados significativos para as empresas e seus clientes.</p>
-                    <div class="subheading mb-3">Valores</div>
-                    <p class="mb-0">Foco; Otimização; Aprendizado contínuo; Colaboração; Inovação; Proatividade; Resolução de problemas.</p>
+                    <img class="loguinho" src="assets/img/interests.svg" alt="Ícone de interesses" loading="lazy">
+                    
+                    <div class="row mt-4" data-aos="fade-up">
+                        <div class="col-md-6">
+                            <h3 class="subheading mb-3"><i class="fas fa-star text-warning mr-2"></i>Interesses Profissionais</h3>
+                            <p>Com o objetivo de alavancar minha carreira na área de dados, busco me tornar um profissional completo, explorando diferentes vertentes do BI, Data Science e otimização de processos de ETL. Sempre fui apaixonado por estatísticas, e meu foco a longo prazo é me especializar em <strong>Engenharia de Dados</strong> e <strong>Data Science</strong>, áreas que me desafiam e permitem trabalhar com grandes volumes de dados para extrair insights valiosos.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="subheading mb-3"><i class="fas fa-heart text-danger mr-2"></i>Valores Pessoais</h3>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Foco</strong> - Dedicação total aos objetivos</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Otimização</strong> - Sempre buscar eficiência</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Aprendizado Contínuo</strong> - Evolução constante</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Colaboração</strong> - Trabalho em equipe</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Inovação</strong> - Criar soluções criativas</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Proatividade</strong> - Tomar iniciativa</li>
+                                <li><span class="fa-li"><i class="fas fa-check-circle text-primary"></i></span><strong>Resolução de Problemas</strong> - Foco em soluções</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Projetos</h2>
-                    <img class="loguinho"src="assets/img/projects.svg">
-                    <br>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            <a href="https://cactuspark.com.br/" target="_blank">CACTUS SPORT PARK</a>
-                            <p>Tive a oportunidade de participar do desenvolvimento de algumas ferramentas para 
-                                o maior parque coberto em shopping da America Latina, CACTUS SPORT PARK. 
-                                Junto com uma equipe maravilhosa 😄😛. </p>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            <a href="https://github.com/Flipe-TI/ERP-Maya-lacos" target="_blank">ERP MAYA LAÇOS</a>
-                            <p>Projeto feito para controle de caixa, estoque e contas a pagar. Foi feito acompanhando
-                                um dos modulos do curso "PHP, do zero ao profissional" orientado por <a href="https://www.bonieky.com/" target="_blank">Bonieky Lacerda</a></p>
-                        </li>
-                        
-                    </ul>
+                    <h2 class="mb-5">Projetos Destacados</h2>
+                    <img class="loguinho" src="assets/img/projects.svg" alt="Ícone de projetos" loading="lazy">
+                    <div class="row mt-4" data-aos="fade-up">
+                        <div class="col-md-6 mb-4">
+                            <div class="project-card">
+                                <h4><i class="fas fa-trophy text-warning mr-2"></i><a href="https://cactuspark.com.br/" target="_blank" rel="noopener noreferrer">CACTUS SPORT PARK</a></h4>
+                                <p>Tive a oportunidade de participar do desenvolvimento de ferramentas para o maior parque coberto em shopping da América Latina - CACTUS SPORT PARK. Trabalho realizado em colaboração com uma equipe multidisciplinar, implementando soluções robustas e escaláveis.</p>
+                                <div class="project-tags">
+                                    <span class="badge badge-light">Web Development</span>
+                                    <span class="badge badge-light">Team Collaboration</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="project-card">
+                                <h4><i class="fas fa-trophy text-warning mr-2"></i><a href="https://github.com/Flipe-TI/ERP-Maya-lacos" target="_blank" rel="noopener noreferrer">ERP MAYA LAÇOS</a></h4>
+                                <p>Sistema completo de controle de caixa, estoque e contas a pagar. Desenvolvido seguindo metodologias profissionais e boas práticas de engenharia de software, com base no curso "PHP, do Zero ao Profissional" orientado por <a href="https://www.bonieky.com/" target="_blank" rel="noopener noreferrer">Bonieky Lacerda</a>.</p>
+                                <div class="project-tags">
+                                    <span class="badge badge-light">PHP</span>
+                                    <span class="badge badge-light">MySQL</span>
+                                    <span class="badge badge-light">ERP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </section>
+
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Cetificados</h2>
-                    <img class="loguinho"src="assets/img/certification.svg">
-                    <div>Biblioteca de certificados</div>
-                    <br>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            <a href="https://learn.microsoft.com/api/credentials/share/pt-br/FelipeGabrieldaSilva-7012/D71A29FF1F6728F7?sharingId=547B9B4FCBDA6B1D" target="_blank">Microsoft Certified: Power BI Data Analyst Associate</a>
-                            <p></p>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            <a href="https://on.fiap.com.br/pluginfile.php/1/local_nanocourses/certificado_nanocourse/33000/b2335dd4a56c1a24317eaed0c17efcc4/certificado.png" target="_blank">Business Intelligence (BI)-FIAP</a>
-                            <p></p>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            <a href="https://analytics.google.com/analytics/academy/certificate/y4B7Xba0RqqBO6Lh55_tPw" target="_blank"> Google Analytics para iniciantes</a>
-                            <p></p>
-                        </li>
-                        
-                    </ul>
+                    <h2 class="mb-5">Certificações Profissionais</h2>
+                    <img class="loguinho" src="assets/img/certification.svg" alt="Ícone de certificações" loading="lazy">
+                    <div class="row mt-4" data-aos="fade-up">
+                        <div class="col-md-6 mb-4">
+                            <div class="cert-card">
+                                <h4><i class="fas fa-certificate text-warning mr-2"></i><a href="https://learn.microsoft.com/api/credentials/share/pt-br/FelipeGabrieldaSilva-7012/D71A29FF1F6728F7?sharingId=547B9B4FCBDA6B1D" target="_blank" rel="noopener noreferrer">Microsoft Certified: Power BI Data Analyst Associate</a></h4>
+                                <p><span class="badge badge-primary">PL-300</span></p>
+                                <p>Certificação oficial Microsoft validando competências avançadas em análise de dados com Power BI.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="cert-card">
+                                <h4><i class="fas fa-certificate text-warning mr-2"></i><a href="https://on.fiap.com.br/pluginfile.php/1/local_nanocourses/certificado_nanocourse/33000/b2335dd4a56c1a24317eaed0c17efcc4/certificado.png" target="_blank" rel="noopener noreferrer">Business Intelligence (BI) - FIAP</a></h4>
+                                <p><span class="badge badge-info">FIAP</span></p>
+                                <p>Especialização em Business Intelligence pela instituição de referência em tecnologia.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="cert-card">
+                                <h4><i class="fas fa-certificate text-warning mr-2"></i><a href="https://analytics.google.com/analytics/academy/certificate/y4B7Xba0RqqBO6Lh55_tPw" target="_blank" rel="noopener noreferrer">Google Analytics para Iniciantes</a></h4>
+                                <p><span class="badge badge-success">Google</span></p>
+                                <p>Certificação oficial Google em análise de dados com Google Analytics.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </section>
-            <!-- <section class="resume-section" id="contact">
+            <!-- Contact Section -->
+            <section class="resume-section" id="contact">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Contato</h2>
-                    <img class="loguinho"src="assets/img/contact.svg">
-                    <br>
-                    <form method="POST" action="email.php">
-                        <div class="form-group">
-                          <label for="name">Nome:*</label>
-                          <input class="form-control" type="text" placeholder="Nome" id="name" name="name" required>
+                    <h2 class="mb-5">Entre em Contato</h2>
+                    <img class="loguinho" src="assets/img/contact.svg" alt="Ícone de contato" loading="lazy">
+                    
+                    <div class="row mt-4" data-aos="fade-up">
+                        <div class="col-md-6">
+                            <h3 class="subheading mb-4">Informações de Contato</h3>
+                            <ul class="fa-ul mb-4">
+                                <li><span class="fa-li"><i class="fas fa-envelope text-primary"></i></span>
+                                    <strong>Email:</strong> <a href="mailto:felipe.silva@felipegabriel.dev">felipe.silva@felipegabriel.dev</a>
+                                </li>
+                                <li><span class="fa-li"><i class="fas fa-phone text-primary"></i></span>
+                                    <strong>Telefone:</strong> <a href="tel:+5585999808243">(85) 9 9980-8243</a>
+                                </li>
+                                <li><span class="fa-li"><i class="fab fa-whatsapp text-success"></i></span>
+                                    <strong>WhatsApp:</strong> <a href="https://wa.me/5585999808243" target="_blank" rel="noopener noreferrer">(85) 9 9980-8243</a>
+                                </li>
+                                <li><span class="fa-li"><i class="fab fa-linkedin text-info"></i></span>
+                                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/felipe-silva-ti/" target="_blank" rel="noopener noreferrer">felipe-silva-ti</a>
+                                </li>
+                                <li><span class="fa-li"><i class="fab fa-github text-dark"></i></span>
+                                    <strong>GitHub:</strong> <a href="https://github.com/Flipe-TI" target="_blank" rel="noopener noreferrer">Flipe-TI</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="form-group">
-                          <label for="email">Email:*</label>
-                          <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp" placeholder="Email" required>
+
+                        <div class="col-md-6">
+                            <h3 class="subheading mb-4">Envie uma Mensagem</h3>
+                            <form id="contactForm" name="contact">
+                                <div class="form-group">
+                                    <label for="name">Nome *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required aria-required="true" placeholder="Seu nome">
+                                    <small class="form-text text-muted">Campo obrigatório</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required aria-required="true" placeholder="seu@email.com">
+                                    <small class="form-text text-muted">Enviaremos uma resposta para este email</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject">Assunto *</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required aria-required="true" placeholder="Assunto da mensagem">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Mensagem *</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" required aria-required="true" placeholder="Sua mensagem aqui..."></textarea>
+                                </div>
+
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="consent" required>
+                                    <label class="form-check-label" for="consent">
+                                        Autorizo Felipe a responder meu email
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
+                                </button>
+                            </form>
+                            <div id="formMessage" class="mt-3"></div>
                         </div>
-                
-                        <div class="form-group">
-                            <label for="assunto">Assunto:*</label>
-                            <textarea class="form-control" id="assunto" name="assunto" rows="3" required></textarea>
-                        </div>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Pode entrar em contato!</label>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-                    </form>
+                    </div>
                 </div>
-                
-            </section> -->
+            </section>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- AOS - Animate On Scroll -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
