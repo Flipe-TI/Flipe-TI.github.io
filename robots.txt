@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /private/
 
 # Sitemaps
-Sitemap: https://flipe-ti.github.io/sitemap.xml
+Sitemap: https://curriculo.felipegabriel.dev/sitemap.xml
 
-# Crawl delay (opcional)
 Crawl-delay: 1

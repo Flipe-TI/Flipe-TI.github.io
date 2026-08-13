@@ -1,163 +1,150 @@
-/*!
-    * Start Bootstrap - Resume v6.0.2 (https://startbootstrap.com/theme/resume)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-    */
-(function ($) {
-    "use strict"; // Start of use strict
+/* ============================================================
+   Core — vanilla, sem jQuery/Bootstrap
+   ============================================================ */
+(function () {
+  "use strict";
 
-    // Initialize AOS (Animate On Scroll)
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out-quart',
-            once: false,
-            mirror: true,
-            offset: 100
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Mobile nav ---- */
+  const toggler = document.getElementById("navToggler");
+  const sidenav = document.getElementById("sidenav");
+  if (toggler && sidenav) {
+    const setOpen = (open) => {
+      sidenav.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
+      toggler.setAttribute("aria-expanded", String(open));
+      toggler.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    };
+    toggler.addEventListener("click", () => setOpen(!sidenav.classList.contains("open")));
+    sidenav.querySelectorAll("a[href^='#']").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false))
+    );
+  }
+
+  /* ---- Scrollspy (IntersectionObserver) ---- */
+  const navLinks = Array.from(document.querySelectorAll("#navList a"));
+  const sections = navLinks
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+  if (sections.length) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const id = "#" + e.target.id;
+            navLinks.forEach((a) =>
+              a.classList.toggle("active", a.getAttribute("href") === id)
+            );
+          }
         });
-    }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => spy.observe(s));
+  }
 
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-        if (
-            location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length
-                ? target
-                : $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                $("html, body").animate(
-                    {
-                        scrollTop: target.offset().top - 50,
-                    },
-                    1000,
-                    "easeInOutExpo"
-                );
-                return false;
+  /* ---- KPI count-up on view ---- */
+  const kpiGrid = document.getElementById("kpiGrid");
+  if (kpiGrid) {
+    const animateValue = (el) => {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || "";
+      if (prefersReduced || isNaN(target)) {
+        el.innerHTML = target + (suffix ? `<span class="suffix">${suffix}</span>` : "");
+        return;
+      }
+      const dur = 900;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const val = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        el.innerHTML = val + (suffix ? `<span class="suffix">${suffix}</span>` : "");
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          kpiGrid.querySelectorAll(".kpi-value[data-count]").forEach(animateValue);
+          obs.disconnect();
+        });
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(kpiGrid);
+  }
+
+  /* ---- Last-updated stamp (respeita idioma) ---- */
+  const stamp = document.getElementById("lastUpdated");
+  if (stamp) {
+    const d = new Date(document.lastModified);
+    const renderStamp = () => {
+      if (isNaN(d)) return;
+      const loc = document.documentElement.lang === "en" ? "en-US" : "pt-BR";
+      stamp.textContent = d.toLocaleDateString(loc, { day: "2-digit", month: "short", year: "numeric" });
+    };
+    renderStamp();
+    document.addEventListener("langchange", renderStamp);
+  }
+
+  /* ---- Reveal on scroll (AOS-lite) ---- */
+  const reveals = document.querySelectorAll("[data-reveal]");
+  if (reveals.length) {
+    if (prefersReduced) {
+      reveals.forEach((el) => el.classList.add("in"));
+    } else {
+      const ro = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              obs.unobserve(e.target);
             }
-        }
-    });
-
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#sideNav",
-        offset: 80
-    });
-
-    // Contact Form Handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form values
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-
-            // Validate form
-            if (!name || !email || !subject || !message) {
-                showFormMessage('Por favor, preencha todos os campos!', 'danger');
-                return;
-            }
-
-            // Validate email
-            if (!isValidEmail(email)) {
-                showFormMessage('Por favor, insira um email válido!', 'danger');
-                return;
-            }
-
-            // Send email using Formspree (free service)
-            fetch('https://formspree.io/f/xanzlwby', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message,
-                    _subject: 'Novo contato de: ' + name
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    showFormMessage('✓ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-                    contactForm.reset();
-                } else {
-                    showFormMessage('Erro ao enviar mensagem. Tente novamente ou contate pelo email.', 'danger');
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                showFormMessage('Erro ao enviar mensagem. Tente novamente.', 'danger');
-            });
-        });
+          });
+        },
+        { threshold: 0.12 }
+      );
+      reveals.forEach((el) => ro.observe(el));
     }
+  }
 
-    // Helper function to validate email
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
+  /* ---- Footer year ---- */
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-    // Helper function to show form messages
-    function showFormMessage(message, type) {
-        const messageDiv = document.getElementById('formMessage');
-        if (messageDiv) {
-            messageDiv.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
-                ${message}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>`;
-            
-            // Auto-remove message after 5 seconds
-            setTimeout(() => {
-                messageDiv.innerHTML = '';
-            }, 5000);
-        }
-    }
+  /* ---- Contact form (Formspree + honeypot) ---- */
+  const form = document.getElementById("contactForm");
+  const msg = document.getElementById("formMsg");
+  const t = (k, fb) => (window.__i18n ? window.__i18n.t(k) : fb) || fb;
+  const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  if (form && msg) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (form._gotcha && form._gotcha.value) return; // honeypot
+      const data = new FormData(form);
+      const name = data.get("name"), email = data.get("email"),
+        subject = data.get("subject"), message = data.get("message");
+      const show = (text, cls) => (msg.innerHTML = '<span class="' + cls + '">' + text + "</span>");
 
-    // Add scroll event listener for navbar styling on scroll
-    $(window).scroll(function () {
-        const scrollDistance = $(window).scrollTop();
-        if (scrollDistance > 50) {
-            $('#sideNav').css('box-shadow', '0 0.5rem 1rem rgba(0, 0, 0, 0.15)');
-        } else {
-            $('#sideNav').css('box-shadow', 'none');
-        }
+      if (!name || !email || !subject || !message) return show(t("form.err.fields", "Preencha todos os campos."), "err");
+      if (!isEmail(email)) return show(t("form.err.email", "Insira um email válido."), "err");
+
+      const btn = form.querySelector("button[type=submit]");
+      if (btn) btn.disabled = true;
+      fetch("https://formspree.io/f/xanzlwby", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name, email, subject, message, _subject: "Novo contato de: " + name }),
+      })
+        .then((r) => {
+          if (r.ok) { show(t("form.ok", "✓ Mensagem enviada!"), "ok"); form.reset(); }
+          else show(t("form.err.send", "Erro ao enviar. Tente novamente."), "err");
+        })
+        .catch(() => show(t("form.err.send", "Erro ao enviar. Tente novamente."), "err"))
+        .finally(() => { if (btn) btn.disabled = false; });
     });
-
-    // Lazy load images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                    }
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-
-})(jQuery); // End of use strict
+  }
+})();

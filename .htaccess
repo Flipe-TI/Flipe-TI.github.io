@@ -70,5 +70,5 @@
     Header set X-XSS-Protection "1; mode=block"
     
     # Content Security Policy
-    Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://use.fontawesome.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://use.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://use.fontawesome.com https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://use.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://use.fontawesome.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com https://dev.to https://formspree.io https://plausible.io; frame-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io"
 </IfModule>
