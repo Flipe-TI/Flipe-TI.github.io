@@ -22,6 +22,25 @@ import { StubOpponent } from "./opponent.mjs";
 import { OnnxOpponent } from "./onnx-opponent.mjs";
 
 // ---------------------------------------------------------------------------
+// Pure turn/movable config — no DOM, no chessground. Node-safe.
+// ---------------------------------------------------------------------------
+
+/**
+ * Derive chessground turn/movable config from game status + side to move.
+ * turnColor MUST always match the side to move, or chessground treats the
+ * user's next move as a premove and the board locks after one move.
+ *
+ * @param {{ over: boolean }} status
+ * @param {"w"|"b"} turn  - side to move ("w" = white, "b" = black)
+ * @returns {{ turnColor: "white"|"black", movableColor: "white"|undefined }}
+ */
+export function chessgroundTurnConfig(status, turn) {
+  const sideToMove = turn === "w" ? "white" : "black";
+  const userCanMove = !status.over && turn === "w";
+  return { turnColor: sideToMove, movableColor: userCanMove ? "white" : undefined };
+}
+
+// ---------------------------------------------------------------------------
 // Pure binding — no DOM, no chessground. Safe to import in Node tests.
 // ---------------------------------------------------------------------------
 
@@ -190,10 +209,16 @@ export async function mountUI(container, { useOnnx = false } = {}) {
     statusEl.textContent = statusText(status);
 
     // Refresh board position and legal moves.
+    // turnColor MUST be set explicitly: chessground auto-toggles it after each
+    // real drag, so without restoring it here it stays "black" while
+    // movable.color stays "white" — chessground then treats the next white
+    // move as a premove and the board locks after the first move.
+    const cfg = chessgroundTurnConfig(status, controller.turn);
     ground.set({
       fen: controller.fen,
+      turnColor: cfg.turnColor,
       movable: {
-        color: status.over ? undefined : "white",
+        color: cfg.movableColor,
         dests: status.over ? new Map() : computeDests(),
       },
     });
