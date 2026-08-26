@@ -6,6 +6,7 @@
   "nav.repos": "GitHub",
   "nav.blog": "Blog",
   "nav.certs": "Certificações",
+  "nav.chess": "Joga comigo",
   "nav.contact": "Contato",
 
   "lbl.about": "painel · felipe.gabriel",
@@ -89,6 +90,17 @@
   "cert.desc.udemy": "SQL Server Integration Services (SSIS) para integração e ETL. Emitido em jul/2024.",
   "cert.title.google": "Google Analytics para Iniciantes",
   "cert.desc.google": "Certificação oficial Google em análise de dados com Google Analytics.",
+
+  "chess.title": "Joga comigo",
+  "chess.subtitle": "xadrez · bot · estilo felipe",
+  "chess.cta": "Jogar contra o bot",
+  "chess.loading": "Carregando tabuleiro…",
+  "chess.your_turn": "Sua vez (brancas)",
+  "chess.bot_thinking": "Bot pensando…",
+  "chess.you_win": "Você ganhou! Bom jogo.",
+  "chess.you_lose": "Bot venceu. Revanche?",
+  "chess.draw": "Empate. Equilíbrio perfeito.",
+  "chess.fallback": "Ver perfil no Chess.com",
 
   "contact.title": "Entre em contato",
   "contact.k.phone": "Telefone",
