@@ -1,0 +1,8 @@
+{
+  "name": "felipe-chess-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test assets/chess/tests/*.test.mjs"
+  }
+}
