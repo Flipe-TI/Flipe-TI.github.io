@@ -1,0 +1,2 @@
+# Treat ONNX model files as binary to prevent line-ending corruption
+*.onnx binary

@@ -60,6 +60,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- Chessground (base + board theme + piece set) -->
+    <link rel="stylesheet" href="assets/vendor/chessground/chessground.base.css" />
+    <link rel="stylesheet" href="assets/vendor/chessground/chessground.brown.css" />
+    <link rel="stylesheet" href="assets/vendor/chessground/chessground.cburnett.css" />
     <!-- Styles -->
     <link href="css/main.css" rel="stylesheet" />
   </head>
@@ -88,7 +92,8 @@
             <li><a href="#repos"><span class="idx">05</span> <span data-i18n="nav.repos">GitHub</span></a></li>
             <li><a href="#blog"><span class="idx">06</span> <span data-i18n="nav.blog">Blog</span></a></li>
             <li><a href="#certifications"><span class="idx">07</span> <span data-i18n="nav.certs">Certificações</span></a></li>
-            <li><a href="#contact"><span class="idx">08</span> <span data-i18n="nav.contact">Contato</span></a></li>
+            <li><a href="#jogar"><span class="idx">08</span> <span data-i18n="nav.chess">Joga comigo</span></a></li>
+            <li><a href="#contact"><span class="idx">09</span> <span data-i18n="nav.contact">Contato</span></a></li>
           </ul>
         </nav>
 
@@ -473,6 +478,28 @@
             </div>
           </section>
 
+          <!-- ===== CHESS — Joga comigo ===== -->
+          <section class="section" id="jogar">
+            <div class="section-head">
+              <span class="field-label" data-i18n="chess.subtitle">xadrez · bot · estilo felipe</span>
+              <h2 data-i18n="chess.title">Joga comigo</h2>
+            </div>
+
+            <div class="jogar-wrap" data-reveal>
+              <button type="button" class="btn btn-primary" id="jogar-start" data-i18n="chess.cta">
+                Jogar contra o bot
+              </button>
+
+              <div id="jogar-board" class="cg-wrap" aria-label="Tabuleiro de xadrez" role="group"></div>
+
+              <div id="jogar-status" class="jogar-status" aria-live="polite" aria-atomic="true"></div>
+
+              <p class="jogar-fallback">
+                <a href="https://www.chess.com/member/felipoww" target="_blank" rel="noopener" data-i18n="chess.fallback">Ver perfil no Chess.com</a>
+              </p>
+            </div>
+          </section>
+
           <!-- ===== CONTACT ===== -->
           <section class="section" id="contact">
             <div class="section-head">
@@ -531,5 +558,6 @@
     <script defer src="js/blog.js"></script>
     <script defer src="js/easter-eggs.js"></script>
     <script defer src="js/scripts.js"></script>
+    <script type="module" src="assets/chess/index.mjs"></script>
   </body>
 </html>

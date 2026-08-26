@@ -1,0 +1,14 @@
+{
+  "encoding_version": "az-8x8x73-v1",
+  "input_name": "board",
+  "output_name": "policy",
+  "input_shape": [
+    1,
+    18,
+    8,
+    8
+  ],
+  "policy_size": 4672,
+  "fixture": true,
+  "note": "bottleneck 1152->64->4672 random fixture, replaced by trained model in Phase 2"
+}

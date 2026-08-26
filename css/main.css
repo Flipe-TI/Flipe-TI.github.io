@@ -543,3 +543,101 @@ img { max-width: 100%; display: block; }
 @media (max-width: 720px) {
   .contact-grid { grid-template-columns: 1fr; gap: 1.75rem; }
 }
+
+/* ---- 18. CHESS — Joga comigo ---- */
+.jogar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* CTA button — inherits .btn .btn-primary; focus ring via global :focus-visible */
+#jogar-start {
+  font-size: 1rem;
+  padding: 0.8rem 1.75rem;
+}
+#jogar-start:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+#jogar-start:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+#jogar-start[hidden] { display: none; }
+
+/* Board container — chessground fills 100% of the parent, so we size it here. */
+#jogar-board {
+  width: min(100%, 480px);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  /* Hidden until the user clicks the CTA and mountUI runs */
+  display: none;
+}
+#jogar-board[aria-busy="true"],
+#jogar-board.cg-wrap:not(:empty) {
+  display: block;
+}
+
+/* Dark-theme board color overrides — must come after chessground.brown.css */
+#jogar-board cg-board {
+  background-color: #1e2a3a;
+  /* Replace the light-square SVG pattern with a dark two-tone grid */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" shape-rendering="crispEdges"><g id="a"><g id="b"><g id="c"><g id="d"><rect width="1" height="1" id="e" fill="%230e141d"/><use x="1" y="1" href="%23e"/><rect y="1" width="1" height="1" id="f" fill="%231e2a3a"/><use x="1" y="-1" href="%23f"/></g><use x="2" href="%23d"/></g><use x="4" href="%23c"/></g><use y="2" href="%23b"/></g><use y="4" href="%23a"/></svg>');
+}
+
+/* Move highlights adapted to dark theme */
+#jogar-board cg-board square.last-move {
+  background-color: rgba(56, 189, 248, 0.25);
+}
+#jogar-board cg-board square.selected {
+  background-color: rgba(56, 189, 248, 0.35);
+}
+#jogar-board cg-board square.move-dest {
+  background: radial-gradient(rgba(56, 189, 248, 0.5) 22%, rgba(56, 189, 248, 0.7) 0, rgba(0,0,0,0.2) 0, rgba(0,0,0,0) 0);
+}
+#jogar-board cg-board square.oc.move-dest {
+  background: radial-gradient(transparent 0%, transparent 80%, rgba(56, 189, 248, 0.35) 80%);
+}
+#jogar-board cg-board square.move-dest:hover {
+  background: rgba(56, 189, 248, 0.25);
+}
+
+/* Coordinate labels on dark squares */
+#jogar-board coords {
+  color: var(--muted);
+}
+
+/* Status text */
+.jogar-status {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.4em;
+  text-align: center;
+}
+
+/* Fallback link */
+.jogar-fallback {
+  font-size: 0.85rem;
+  color: var(--faint);
+  text-align: center;
+  margin: 0;
+}
+.jogar-fallback a {
+  color: var(--muted);
+}
+.jogar-fallback a:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #jogar-board cg-board piece {
+    transition: none !important;
+  }
+}
