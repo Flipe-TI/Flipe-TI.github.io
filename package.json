@@ -8,6 +8,11 @@
   "devDependencies": {
     "chess.js": "1.4.0",
     "chessground": "9.2.1",
+    "onnxruntime-node": "1.29.0",
     "onnxruntime-web": "1.29.0"
+  },
+  "allowScripts": {
+    "onnxruntime-node@1.29.0": true,
+    "protobufjs@7.6.5": true
   }
 }
