@@ -66,6 +66,19 @@ export class GameController {
   }
 
   /**
+   * Return all legal moves for the side to move.
+   *
+   * @returns {{ from: string, to: string, promotion: string|null }[]}
+   */
+  legalMoves() {
+    return this._chess.moves({ verbose: true }).map(m => ({
+      from: m.from,
+      to: m.to,
+      promotion: m.promotion || null,
+    }));
+  }
+
+  /**
    * Summarise the game's terminal state.
    *
    * @returns {{ over: boolean, result?: string, reason?: string }}
