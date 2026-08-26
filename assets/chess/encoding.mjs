@@ -12,6 +12,181 @@ export const ENCODING_VERSION = "az-8x8x73-v1";
 export const PLANES = 18;
 export const INPUT_SHAPE = [PLANES, 8, 8];
 
+// ---------------------------------------------------------------------------
+// Move encoding — AlphaZero 8×8×73
+// See training/ENCODING.md for the authoritative frozen specification.
+// ---------------------------------------------------------------------------
+
+/** Total number of policy logits (8×8×73). */
+export const POLICY_SIZE = 4672; // 64 * 73
+
+/**
+ * Queen-move directions in frozen order d=0..7: (file_delta, rank_delta)
+ *   0: N (0,+1)  1: NE (+1,+1)  2: E (+1,0)  3: SE (+1,-1)
+ *   4: S (0,-1)  5: SW (-1,-1)  6: W (-1,0)  7: NW (-1,+1)
+ */
+const QUEEN_DIRS = [
+  [0, 1],   // d=0 N
+  [1, 1],   // d=1 NE
+  [1, 0],   // d=2 E
+  [1, -1],  // d=3 SE
+  [0, -1],  // d=4 S
+  [-1, -1], // d=5 SW
+  [-1, 0],  // d=6 W
+  [-1, 1],  // d=7 NW
+];
+
+/**
+ * Knight-move offsets in frozen order j=0..7: (file_delta, rank_delta)
+ *   56:(+1,+2) 57:(+2,+1) 58:(+2,-1) 59:(+1,-2)
+ *   60:(-1,-2) 61:(-2,-1) 62:(-2,+1) 63:(-1,+2)
+ */
+const KNIGHT_OFFSETS = [
+  [1, 2],   // j=0 → moveType 56
+  [2, 1],   // j=1 → moveType 57
+  [2, -1],  // j=2 → moveType 58
+  [1, -2],  // j=3 → moveType 59
+  [-1, -2], // j=4 → moveType 60
+  [-2, -1], // j=5 → moveType 61
+  [-2, 1],  // j=6 → moveType 62
+  [-1, 2],  // j=7 → moveType 63
+];
+
+/** Underpromotion piece codes → piece index (0=knight, 1=bishop, 2=rook) */
+const UNDER_PIECE = { n: 0, b: 1, r: 2 };
+/** Reverse: piece index → piece letter */
+const UNDER_PIECE_INV = ["n", "b", "r"];
+
+/** Parse algebraic square "e2" → {file: 4, rank: 1} (0-indexed). */
+function parseSquare(sq) {
+  return {
+    file: sq.charCodeAt(0) - 97, // 'a'=0 .. 'h'=7
+    rank: parseInt(sq[1], 10) - 1, // '1'=0 .. '8'=7
+  };
+}
+
+/** Format {file, rank} → algebraic "e2". */
+function formatSquare(file, rank) {
+  return String.fromCharCode(97 + file) + (rank + 1);
+}
+
+/**
+ * Encode a move to an AlphaZero policy index.
+ *
+ * @param {{ from: string, to: string, promotion: string|null }} move
+ *   Squares are in the side-to-move perspective (already mirrored by caller).
+ *   promotion: "q"|"r"|"b"|"n"|null. "q" and null use the queen-move range.
+ * @returns {number} index in [0, POLICY_SIZE)
+ */
+export function moveToIndex({ from, to, promotion }) {
+  const f = parseSquare(from);
+  const t = parseSquare(to);
+  const df = t.file - f.file;
+  const dr = t.rank - f.rank;
+
+  const fromSquare = f.rank * 8 + f.file;
+
+  // --- Underpromotion (n/b/r only) ---
+  if (promotion === "n" || promotion === "b" || promotion === "r") {
+    const dir = df + 1; // file_delta -1→0, 0→1, +1→2
+    const piece = UNDER_PIECE[promotion];
+    const moveType = 64 + dir * 3 + piece;
+    return fromSquare * 73 + moveType;
+  }
+
+  // --- Knight move ---
+  for (let j = 0; j < 8; j++) {
+    if (KNIGHT_OFFSETS[j][0] === df && KNIGHT_OFFSETS[j][1] === dr) {
+      return fromSquare * 73 + (56 + j);
+    }
+  }
+
+  // --- Queen move (includes queen promotion; promotion="q" or null) ---
+  const k = Math.max(Math.abs(df), Math.abs(dr)); // distance 1..7
+  const sdf = df === 0 ? 0 : df / Math.abs(df);   // sign
+  const sdr = dr === 0 ? 0 : dr / Math.abs(dr);
+  for (let d = 0; d < 8; d++) {
+    if (QUEEN_DIRS[d][0] === sdf && QUEEN_DIRS[d][1] === sdr) {
+      const moveType = d * 7 + (k - 1);
+      return fromSquare * 73 + moveType;
+    }
+  }
+
+  throw new Error(`moveToIndex: cannot encode move ${from}-${to} promo=${promotion}`);
+}
+
+/**
+ * Decode a policy index back to a move object.
+ *
+ * For queen-move indices that land on rank 7 with k=1 and direction ∈ {N,NE,NW},
+ * the function emits promotion:"q" because that is the only way moveToIndex
+ * would produce a 1-step forward queen move from rank 6. Non-promotion
+ * sliding moves and diagonal bishop/rook moves to the back rank cannot be
+ * distinguished from queen promotions in this encoding — this is inherent to
+ * the AlphaZero scheme; legal-move masking downstream resolves the ambiguity.
+ *
+ * @param {number} index
+ * @param {"w"|"b"} sideToMove  (unused in coordinate math; coords are
+ *   already in the caller's perspective, same as moveToIndex)
+ * @returns {{ from: string, to: string, promotion: string|null }}
+ */
+export function indexToMove(index, sideToMove) { // eslint-disable-line no-unused-vars
+  const fromSquare = Math.floor(index / 73);
+  const moveType = index % 73;
+
+  const fromRank = Math.floor(fromSquare / 8);
+  const fromFile = fromSquare % 8;
+
+  // --- Underpromotion ---
+  if (moveType >= 64) {
+    const sub = moveType - 64;
+    const dir = Math.floor(sub / 3); // 0=left, 1=push, 2=right
+    const piece = sub % 3;
+    const df = dir - 1; // -1, 0, +1
+    const dr = 1;       // always +1 in mover perspective
+    const toFile = fromFile + df;
+    const toRank = fromRank + dr;
+    return {
+      from: formatSquare(fromFile, fromRank),
+      to: formatSquare(toFile, toRank),
+      promotion: UNDER_PIECE_INV[piece],
+    };
+  }
+
+  // --- Knight move ---
+  if (moveType >= 56) {
+    const j = moveType - 56;
+    const df = KNIGHT_OFFSETS[j][0];
+    const dr = KNIGHT_OFFSETS[j][1];
+    return {
+      from: formatSquare(fromFile, fromRank),
+      to: formatSquare(fromFile + df, fromRank + dr),
+      promotion: null,
+    };
+  }
+
+  // --- Queen move ---
+  const d = Math.floor(moveType / 7);
+  const k = (moveType % 7) + 1; // distance 1..7
+  const df = QUEEN_DIRS[d][0] * k;
+  const dr = QUEEN_DIRS[d][1] * k;
+  const toFile = fromFile + df;
+  const toRank = fromRank + dr;
+
+  // Detect queen promotion: 1-step forward (or diagonal-forward) move arriving
+  // at rank 7 from rank 6. Directions that go "forward" (rank_delta > 0): N, NE, NW.
+  let promotion = null;
+  if (k === 1 && QUEEN_DIRS[d][1] === 1 && toRank === 7) {
+    promotion = "q";
+  }
+
+  return {
+    from: formatSquare(fromFile, fromRank),
+    to: formatSquare(toFile, toRank),
+    promotion,
+  };
+}
+
 // Piece-type to plane index (relative to "my pieces" block at plane 0)
 // P=0, N=1, B=2, R=3, Q=4, K=5
 const PIECE_PLANE = {
