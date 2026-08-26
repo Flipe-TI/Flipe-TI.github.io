@@ -566,6 +566,7 @@ img { max-width: 100%; display: block; }
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+#jogar-start[hidden] { display: none; }
 
 /* Board container — chessground fills 100% of the parent, so we size it here. */
 #jogar-board {
