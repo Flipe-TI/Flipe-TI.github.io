@@ -97,31 +97,7 @@ export async function mountUI(container, { useOnnx = false } = {}) {
   // --- 4. Dynamically import chessground (browser global dependency) ---
   const { Chessground } = await import("../vendor/chessground/chessground.mjs");
 
-  // --- 5. Helper: compute legal-move destinations for chessground ---
-  function legalDests(chess) {
-    // chess.js is accessible via controller's internal state; we re-derive
-    // legal moves from the FEN using a temporary Chess instance imported at top.
-    // Instead, we expose legal moves via controller — but GameController doesn't
-    // expose chess.moves(). We import Chess directly here for the dests map.
-    // (This import is already resolved — Chess is from vendor, not browser-only.)
-    const { Chess } = /** @type {any} */ (globalThis.__chessForDests || {});
-    if (!Chess) {
-      // Fallback: return empty map when Chess is not available (shouldn't happen
-      // in browser since chess.js is already vendored and loaded).
-      return new Map();
-    }
-    const tmp = new Chess(chess);
-    const dests = new Map();
-    for (const move of tmp.moves({ verbose: true })) {
-      const srcs = dests.get(move.from) || [];
-      srcs.push(move.to);
-      dests.set(move.from, srcs);
-    }
-    return dests;
-  }
-
-  // Better: import Chess directly (it's already in scope via transitive imports).
-  // We re-import it explicitly here so this function is self-contained.
+  // --- 5. Import Chess for legal-move destination computation ---
   const { Chess } = await import("../vendor/chess.js/chess.mjs");
 
   function computeDests() {
