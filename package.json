@@ -4,5 +4,10 @@
   "type": "module",
   "scripts": {
     "test": "node --test assets/chess/tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "chess.js": "1.4.0",
+    "chessground": "9.2.1",
+    "onnxruntime-web": "1.29.0"
   }
 }
