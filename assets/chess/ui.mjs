@@ -111,13 +111,35 @@ export async function mountUI(container, { useOnnx = false } = {}) {
     return dests;
   }
 
-  // --- 6. Status element (create one if not present) ---
-  let statusEl = container.querySelector(".chess-status");
-  if (!statusEl) {
-    statusEl = document.createElement("div");
-    statusEl.className = "chess-status";
-    container.insertAdjacentElement("afterend", statusEl);
+  // --- 6. Status element — prefer #jogar-status in the page; fall back to creating one ---
+  const t = (k, fallback) =>
+    window.__i18n && window.__i18n.t ? window.__i18n.t(k) : fallback;
+
+  function statusText(status) {
+    if (status.over) {
+      if (status.reason === "checkmate") {
+        if (status.result === "1-0") return t("chess.you_win", "You win!");
+        if (status.result === "0-1") return t("chess.you_lose", "Bot wins.");
+        return t("chess.draw", "Draw.");
+      }
+      return t("chess.draw", "Draw.");
+    }
+    return controller.turn === "w"
+      ? t("chess.your_turn", "Your turn")
+      : t("chess.bot_thinking", "Bot is thinking…");
   }
+
+  let statusEl = document.querySelector("#jogar-status");
+  if (!statusEl) {
+    statusEl = container.querySelector(".chess-status");
+    if (!statusEl) {
+      statusEl = document.createElement("div");
+      statusEl.className = "chess-status";
+      container.insertAdjacentElement("afterend", statusEl);
+    }
+  }
+
+  let currentStatus = controller.status();
 
   // --- 7. Mount chessground ---
   const ground = Chessground(container, {
@@ -153,17 +175,10 @@ export async function mountUI(container, { useOnnx = false } = {}) {
 
   // --- 8. Wire the binding ---
   function onStatus(status) {
+    currentStatus = status;
+
     // Update status display.
-    if (status.over) {
-      const resultText =
-        status.reason === "checkmate"
-          ? `Checkmate — ${status.result}`
-          : `Game over — ${status.result} (${status.reason})`;
-      statusEl.textContent = resultText;
-    } else {
-      statusEl.textContent =
-        controller.turn === "w" ? "Your turn (white)" : "Bot is thinking…";
-    }
+    statusEl.textContent = statusText(status);
 
     // Refresh board position and legal moves.
     ground.set({
@@ -178,7 +193,12 @@ export async function mountUI(container, { useOnnx = false } = {}) {
   const binding = createBoardBinding(controller, { onStatus });
 
   // Set initial status message.
-  statusEl.textContent = "Your turn (white)";
+  statusEl.textContent = statusText(currentStatus);
+
+  // Re-render status text on language change.
+  document.addEventListener("langchange", () => {
+    statusEl.textContent = statusText(currentStatus);
+  });
 
   return { ground, controller, binding };
 }
