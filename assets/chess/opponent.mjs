@@ -16,22 +16,7 @@
  * absolute move so the chess.js legality guarantee is preserved.
  */
 
-import { moveToIndex, POLICY_SIZE } from "./encoding.mjs";
-
-/**
- * Mirror a square from absolute coords to side-to-move perspective for Black.
- * Only rank flips (rank char r → char(57 - r.charCodeAt(0)), i.e. '1'↔'8').
- * File is unchanged. Example: "e2" → "e7", "g8" → "g1".
- *
- * @param {string} sq  - Algebraic square, e.g. "e2"
- * @returns {string}
- */
-function mirrorSquare(sq) {
-  // sq[0] = file letter, sq[1] = rank digit '1'..'8'
-  // Mirror rank: '1'↔'8', '2'↔'7', etc. → new_rank = 9 - rank
-  const mirroredRank = 9 - parseInt(sq[1], 10);
-  return sq[0] + mirroredRank;
-}
+import { moveToIndex, toPerspectiveSquare, POLICY_SIZE } from "./encoding.mjs";
 
 /**
  * Select a move from legalMoves using the policy vector, applying a
@@ -52,15 +37,16 @@ export function selectMove(policy, legalMoves, sideToMove, { temperature = 0 } =
     throw new Error("selectMove: legalMoves is empty");
   }
 
-  const mirror = sideToMove === "b";
-
   // Build a weight array parallel to legalMoves.
   // Only legal moves ever enter this array, so the result is always legal.
-  // For Black, mirror from/to before the index lookup (perspective alignment).
+  // For Black, mirror from/to to perspective coords before the index lookup
+  // (toPerspectiveSquare returns the square unchanged for White).
   const weights = legalMoves.map(m => {
-    const lookupMove = mirror
-      ? { from: mirrorSquare(m.from), to: mirrorSquare(m.to), promotion: m.promotion }
-      : m;
+    const lookupMove = {
+      from: toPerspectiveSquare(m.from, sideToMove),
+      to: toPerspectiveSquare(m.to, sideToMove),
+      promotion: m.promotion,
+    };
     const idx = moveToIndex(lookupMove);
     const w = policy[idx];
     return (w > 0 ? w : 0);

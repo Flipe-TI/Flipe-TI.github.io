@@ -141,6 +141,15 @@ export async function mountUI(container, { useOnnx = false } = {}) {
 
   let currentStatus = controller.status();
 
+  // --- 6b. Set bilingual aria-label on the board container ---
+  // The i18n system only swaps textContent for [data-i18n] elements, so we
+  // set the aria-label imperatively here and refresh it on langchange.
+  function updateBoardLabel() {
+    container.setAttribute("aria-label", t("chess.board_label", "Chess board"));
+  }
+  updateBoardLabel();
+  document.addEventListener("langchange", updateBoardLabel);
+
   // --- 7. Mount chessground ---
   const ground = Chessground(container, {
     fen: controller.fen,

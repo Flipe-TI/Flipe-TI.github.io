@@ -115,6 +115,8 @@ moveType is 0..72:
            (rank_delta is always +1, toward promotion, in the mover's perspective)
     piece = 0 (knight), 1 (bishop), 2 (rook)
 
+**Warning:** `indexToMove`'s promotion inference is lossy and heuristic — any 1-step forward or diagonal move arriving at rank 7 is reported as queen-promotion even for non-pawn pieces, and the function has no bounds guard on out-of-range indices; a Phase-2 Python port must NOT use `indexToMove` to decode a policy argmax without legal-move masking.
+
 ---
 
 ## meta.json

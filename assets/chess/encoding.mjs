@@ -71,6 +71,26 @@ function formatSquare(file, rank) {
 }
 
 /**
+ * Convert an algebraic square to the side-to-move perspective.
+ *
+ * For White (sideToMove = "w"), the square is returned unchanged.
+ * For Black (sideToMove = "b"), the rank is flipped: rank char r → char(9-r),
+ * e.g. "d7" → "d2", "d5" → "d4". File is always unchanged.
+ *
+ * This is the single canonical mirror implementation shared by selectMove
+ * (for index lookup) and the parity test (for fixture verification).
+ *
+ * @param {string} square     - Algebraic square, e.g. "e2"
+ * @param {"w"|"b"} sideToMove
+ * @returns {string}
+ */
+export function toPerspectiveSquare(square, sideToMove) {
+  if (sideToMove !== "b") return square;
+  const mirroredRank = 9 - parseInt(square[1], 10);
+  return square[0] + mirroredRank;
+}
+
+/**
  * Encode a move to an AlphaZero policy index.
  *
  * @param {{ from: string, to: string, promotion: string|null }} move

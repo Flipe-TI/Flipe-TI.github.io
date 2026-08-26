@@ -95,6 +95,7 @@
   "chess.subtitle": "chess · bot · felipe's style",
   "chess.cta": "Play against the bot",
   "chess.loading": "Loading board…",
+  "chess.board_label": "Chess board",
   "chess.your_turn": "Your turn (white)",
   "chess.bot_thinking": "Bot is thinking…",
   "chess.you_win": "You won! Well played.",

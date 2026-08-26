@@ -35,9 +35,12 @@ function init() {
       // Remove listener so subsequent clicks are ignored.
       startBtn.removeEventListener("click", handleFirstClick);
 
+      const t = (k, fallback) =>
+        window.__i18n && window.__i18n.t ? window.__i18n.t(k) : fallback;
+
       // Show loading state.
       startBtn.disabled = true;
-      startBtn.textContent = "Carregando…";
+      startBtn.textContent = t("chess.loading", "Loading…");
       boardContainer.setAttribute("aria-busy", "true");
 
       try {
@@ -52,7 +55,7 @@ function init() {
         // Surface errors gracefully.
         console.error("[chess] Failed to mount UI:", err);
         startBtn.disabled = false;
-        startBtn.textContent = "Jogar";
+        startBtn.textContent = t("chess.cta", "Play");
         mounted = false;
       }
     }

@@ -95,6 +95,7 @@
   "chess.subtitle": "xadrez · bot · estilo felipe",
   "chess.cta": "Jogar contra o bot",
   "chess.loading": "Carregando tabuleiro…",
+  "chess.board_label": "Tabuleiro de xadrez",
   "chess.your_turn": "Sua vez (brancas)",
   "chess.bot_thinking": "Bot pensando…",
   "chess.you_win": "Você ganhou! Bom jogo.",
