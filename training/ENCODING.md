@@ -77,40 +77,43 @@ All values are `1.0` or `0.0`.
 
 ---
 
-## Move Map (AlphaZero 8×8×73) — reference for Task 3
+## Move encoding — 8x8x73 = 4672 (FROZEN, binding for JS and Python)
 
-Each legal move is encoded as `(fromSquare, moveType)`.
+Index of a move = fromSquare * 73 + moveType, where fromSquare = rank*8 + file
+(in the side-to-move perspective, same orientation as the position encoding).
+moveType is 0..72:
 
-```
-index = fromSquare * 73 + moveType
-```
+- moveType 0..55 — "queen moves": 8 directions x 7 distances.
+  Direction order (index d = 0..7), each a (file_delta, rank_delta) unit step:
+    0: N  ( 0, +1)
+    1: NE (+1, +1)
+    2: E  (+1,  0)
+    3: SE (+1, -1)
+    4: S  ( 0, -1)
+    5: SW (-1, -1)
+    6: W  (-1,  0)
+    7: NW (-1, +1)
+  distance k = 1..7. moveType = d*7 + (k-1).
+  (Normal moves and QUEEN promotions both use this range — a queen promotion
+   is just the 1-step forward/diagonal queen move.)
 
-`fromSquare` uses the same coordinate system as above (`rank * 8 + file`, 0-indexed, from mover's perspective after rank-flip if Black to move).
+- moveType 56..63 — knight moves, in this FROZEN order (knight index j = 0..7),
+  each (file_delta, rank_delta):
+    56: ( +1, +2 )
+    57: ( +2, +1 )
+    58: ( +2, -1 )
+    59: ( +1, -2 )
+    60: ( -1, -2 )
+    61: ( -2, -1 )
+    62: ( -2, +1 )
+    63: ( -1, +2 )
 
-### moveType breakdown (73 total)
-
-| Range | Count | Meaning |
-|-------|-------|---------|
-| 0–55  | 56    | Queen-moves: 8 directions × 7 distances |
-| 56–63 | 8     | Knight-moves |
-| 64–72 | 9     | Underpromotions: 3 pieces (Knight, Bishop, Rook) × 3 directions (left-capture, push, right-capture) |
-
-Queen-promotion counts as a queen-move (indices 0–55). Knight/Bishop/Rook promotions use the underpromotion slots (64–72).
-
-Direction ordering for queen-moves (index = direction * 7 + (distance - 1)):
-
-| Idx | Direction |
-|-----|-----------|
-| 0   | N  (+rank) |
-| 1   | NE |
-| 2   | E  (+file) |
-| 3   | SE |
-| 4   | S  (-rank) |
-| 5   | SW |
-| 6   | W  (-file) |
-| 7   | NW |
-
-Knight-move ordering (8 moves, indices 56–63): the 8 L-shapes in a fixed order (e.g. (+2,+1), (+2,-1), (-2,+1), (-2,-1), (+1,+2), (+1,-2), (-1,+2), (-1,-2)).
+- moveType 64..72 — underpromotions (promotion to knight, bishop, or rook only;
+  queen promotion uses the queen-move range above). moveType = 64 + dir*3 + piece,
+  where:
+    dir  = 0 (capture-left, file_delta -1), 1 (push, file_delta 0), 2 (capture-right, file_delta +1)
+           (rank_delta is always +1, toward promotion, in the mover's perspective)
+    piece = 0 (knight), 1 (bishop), 2 (rook)
 
 ---
 

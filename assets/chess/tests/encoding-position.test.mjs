@@ -48,9 +48,16 @@ test("roque relativo ao lado a mover: pretas a mover com Kq", () => {
 // After 1.e4, FEN has en-passant target e3 (rank 2, 0-indexed) for Black.
 // White to move check: e3 stays at rank 2, file 4.
 // Black to move check: rank-flip → 7-2 = 5, file 4.
-test("en-passant: quadrado do alvo está no plano 17 sem espelhar (brancas a mover)", () => {
+test("en-passant: alvo é rank-flipped quando pretas a mover (e3 -> rank 5)", () => {
   // After 1.e4: ep target is e3 = file 4, rank 2
   const t = encodePosition("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1");
   // Black to move → rank-flip: e3 = rank 2 → 7-2 = 5, file 4
   assert.equal(t[17 * 64 + (5 * 8 + 4)], 1.0, "plane 17 deve ter 1.0 no alvo espelhado e3→rank5");
+});
+
+test("en-passant: alvo NÃO é espelhado quando brancas a mover (d6 -> rank 5, file d)", () => {
+  const fen = "rnbqkbnr/ppp2ppp/4p3/3pP3/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3";
+  const t = encodePosition(fen);
+  // plano 17 = en-passant; d6 -> file d=3, rank 5 (sem flip, brancas a mover)
+  assert.equal(t[17 * 64 + (5 * 8 + 3)], 1.0);
 });
