@@ -11,8 +11,8 @@
  *   requires no network request for a model file, and has no WASM warm-up delay).
  */
 
-// --- Phase 1 flag: flip to `true` to enable OnnxOpponent (Task 10+) ---
-const USE_ONNX = false;
+// --- Phase 2: OnnxOpponent enabled (trained model plays in Felipe's style) ---
+const USE_ONNX = true;
 
 // Guard: track whether the board has already been mounted.
 let mounted = false;

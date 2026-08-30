@@ -97,7 +97,11 @@ export async function mountUI(container, { useOnnx = false } = {}) {
     // Dynamically load onnxruntime-web so Node tests never touch it.
     const ort = await import("../vendor/onnxruntime-web/ort.wasm.min.mjs");
     // Tell the WASM runtime where to find the .wasm binaries.
-    ort.env.wasm.wasmPaths = "assets/vendor/onnxruntime-web/";
+    // Absolute URL resolved from this module: a bare relative specifier fails
+    // ort's internal dynamic import(). This works both locally and under the
+    // GitHub Pages subpath. ort-web 1.29 auto-falls-back to single-thread when
+    // crossOriginIsolated is false (GitHub Pages), so no COOP/COEP is needed.
+    ort.env.wasm.wasmPaths = new URL("../vendor/onnxruntime-web/", import.meta.url).href;
 
     const modelUrl = new URL("../models/felipe-chess/model.onnx", import.meta.url);
     opponent = new OnnxOpponent(modelUrl, { ort });
