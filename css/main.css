@@ -552,6 +552,19 @@ img { max-width: 100%; display: block; }
   gap: 1.25rem;
 }
 
+/* Intro copy + tech chips (MLOps story) — reuses .tags/.tag */
+.jogar-lead {
+  max-width: 54ch;
+  text-align: center;
+  color: var(--muted);
+  margin: 0;
+}
+.jogar-tags {
+  justify-content: center;
+  margin-top: -0.5rem;
+}
+.jogar-tags .tag { list-style: none; }
+
 /* CTA button — inherits .btn .btn-primary; focus ring via global :focus-visible */
 #jogar-start {
   font-size: 1rem;
@@ -608,9 +621,12 @@ img { max-width: 100%; display: block; }
   background: rgba(56, 189, 248, 0.25);
 }
 
-/* Coordinate labels on dark squares */
-#jogar-board coords {
-  color: var(--muted);
+/* Coordinate labels — the board is a dark two-tone, but chessground's theme
+   colors half the coords dark gray (rgba(72,72,72,.8)), which is unreadable
+   here. Force every coord light. The id-scoped `coord` selector outranks the
+   theme's .orientation-*/nth-child rules. */
+#jogar-board coords coord {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Status text */
@@ -634,6 +650,10 @@ img { max-width: 100%; display: block; }
 }
 .jogar-fallback a:hover {
   color: var(--accent);
+}
+.jogar-sep {
+  margin: 0 0.5ch;
+  color: var(--faint);
 }
 
 @media (prefers-reduced-motion: reduce) {

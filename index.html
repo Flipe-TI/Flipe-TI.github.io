@@ -481,11 +481,21 @@
           <!-- ===== CHESS — Joga comigo ===== -->
           <section class="section" id="jogar">
             <div class="section-head">
-              <span class="field-label" data-i18n="chess.subtitle">xadrez · bot · estilo felipe</span>
+              <span class="field-label" data-i18n="chess.subtitle">xadrez · ia · ciência de dados</span>
               <h2 data-i18n="chess.title">Joga comigo</h2>
             </div>
 
             <div class="jogar-wrap" data-reveal>
+              <p class="jogar-lead" data-i18n="chess.lead">
+                Uma rede neural que aprendeu meu estilo imitando minhas partidas reais de rapid do Chess.com. Ela retreina sozinha todo dia e roda inteira no seu navegador.
+              </p>
+
+              <ul class="tags jogar-tags">
+                <li class="tag" data-i18n="chess.tag_trained">treinado nas minhas partidas</li>
+                <li class="tag amber" data-i18n="chess.tag_retrains">retreina todo dia</li>
+                <li class="tag violet" data-i18n="chess.tag_browser">roda no seu navegador</li>
+              </ul>
+
               <button type="button" class="btn btn-primary" id="jogar-start" data-i18n="chess.cta">
                 Jogar contra o bot
               </button>
@@ -495,6 +505,8 @@
               <div id="jogar-status" class="jogar-status" aria-live="polite" aria-atomic="true"></div>
 
               <p class="jogar-fallback">
+                <a href="https://github.com/Flipe-TI/felipe-chess" target="_blank" rel="noopener" data-i18n="chess.repo">Ver o pipeline no GitHub</a>
+                <span class="jogar-sep" aria-hidden="true">·</span>
                 <a href="https://www.chess.com/member/felipoww" target="_blank" rel="noopener" data-i18n="chess.fallback">Ver perfil no Chess.com</a>
               </p>
             </div>

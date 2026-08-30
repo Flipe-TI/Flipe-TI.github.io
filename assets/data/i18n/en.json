@@ -92,7 +92,11 @@
   "cert.desc.google": "Official Google certification in data analysis with Google Analytics.",
 
   "chess.title": "Play me",
-  "chess.subtitle": "chess · bot · felipe's style",
+  "chess.subtitle": "chess · ai · data science",
+  "chess.lead": "A neural network that learned my style by cloning my real Chess.com rapid games. It retrains itself every day and runs entirely in your browser.",
+  "chess.tag_trained": "trained on my games",
+  "chess.tag_retrains": "retrains daily",
+  "chess.tag_browser": "runs in your browser",
   "chess.cta": "Play against the bot",
   "chess.loading": "Loading board…",
   "chess.board_label": "Chess board",
@@ -102,6 +106,7 @@
   "chess.you_lose": "Bot wins. Rematch?",
   "chess.draw": "Draw. Perfect balance.",
   "chess.fallback": "View Chess.com profile",
+  "chess.repo": "See the pipeline on GitHub",
 
   "contact.title": "Get in touch",
   "contact.k.phone": "Phone",

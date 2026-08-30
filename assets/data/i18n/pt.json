@@ -92,7 +92,11 @@
   "cert.desc.google": "Certificação oficial Google em análise de dados com Google Analytics.",
 
   "chess.title": "Joga comigo",
-  "chess.subtitle": "xadrez · bot · estilo felipe",
+  "chess.subtitle": "xadrez · ia · ciência de dados",
+  "chess.lead": "Uma rede neural que aprendeu meu estilo imitando minhas partidas reais de rapid do Chess.com. Ela retreina sozinha todo dia e roda inteira no seu navegador.",
+  "chess.tag_trained": "treinado nas minhas partidas",
+  "chess.tag_retrains": "retreina todo dia",
+  "chess.tag_browser": "roda no seu navegador",
   "chess.cta": "Jogar contra o bot",
   "chess.loading": "Carregando tabuleiro…",
   "chess.board_label": "Tabuleiro de xadrez",
@@ -102,6 +106,7 @@
   "chess.you_lose": "Bot venceu. Revanche?",
   "chess.draw": "Empate. Equilíbrio perfeito.",
   "chess.fallback": "Ver perfil no Chess.com",
+  "chess.repo": "Ver o pipeline no GitHub",
 
   "contact.title": "Entre em contato",
   "contact.k.phone": "Telefone",
