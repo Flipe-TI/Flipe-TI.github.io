@@ -9,7 +9,12 @@
   "nav.chess": "Joga comigo",
   "nav.contact": "Contato",
 
-  "lbl.about": "painel · felipe.gabriel",
+  "lbl.about": "dashboard · felipe.gabriel",
+  "dash.title": "Dashboard da carreira",
+  "dash.match": "cargos correspondem",
+  "dash.prof": "Domínio por tecnologia",
+  "dash.timeline": "Pipeline de carreira",
+  "dash.note": "construído como um relatório de BI ao vivo — o currículo é a demo",
   "lbl.experience": "experiencia",
   "lbl.education": "educacao",
   "lbl.certs": "certificacoes",

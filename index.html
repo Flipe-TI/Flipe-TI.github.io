@@ -9,7 +9,7 @@
     <meta name="description" content="Felipe Gabriel — Analista de BI & Dados. Power BI (PL-300), SQL, Python, ETL e Data Science. Transformando dados em decisão." />
     <meta name="author" content="Felipe Gabriel da Silva" />
     <meta name="keywords" content="BI, Data Science, Power BI, PL-300, SQL, Python, ETL, Analytics, Apache Airflow" />
-    <meta name="theme-color" content="#0a0e14" />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="canonical" href="https://curriculo.felipegabriel.dev/" />
 
     <!-- Open Graph / Twitter -->
@@ -57,7 +57,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
     <!-- Chessground (base + board theme + piece set) -->
@@ -116,7 +116,7 @@
           <!-- ===== HERO / SELF-DASHBOARD ===== -->
           <section class="section hero" id="about">
             <div class="hero-top">
-              <span class="field-label" data-i18n="lbl.about">painel · felipe.gabriel</span>
+              <span class="field-label" data-i18n="lbl.about">dashboard · felipe.gabriel</span>
               <span class="hero-updated">
                 <span class="status-dot" style="background:var(--ok);box-shadow:0 0 8px var(--ok)"></span>
                 <span data-i18n="hero.updated">atualizado</span> <b id="lastUpdated">agora</b>
@@ -131,23 +131,25 @@
               pipelines de <strong>ETL</strong> e aplicação de IA (LLMs) para análise de dados.
             </p>
 
-            <div class="kpi-grid" id="kpiGrid">
-              <div class="kpi">
-                <div class="kpi-label" data-i18n="kpi.years">Anos de experiência</div>
-                <div class="kpi-value" data-count="6" data-suffix="+">6<span class="suffix">+</span></div>
-              </div>
-              <div class="kpi">
-                <div class="kpi-label" data-i18n="kpi.certs">Certificações</div>
-                <div class="kpi-value" data-count="5">5</div>
-              </div>
-              <div class="kpi">
-                <div class="kpi-label" data-i18n="kpi.repos">Repositórios</div>
-                <div class="kpi-value" id="kpiRepos" data-count="12" data-suffix="+">12<span class="suffix">+</span></div>
-              </div>
-              <div class="kpi">
-                <div class="kpi-label" data-i18n="kpi.companies">Empresas</div>
-                <div class="kpi-value" data-count="3">3</div>
-              </div>
+            <div class="flow" aria-label="Pipeline de dados: raw data, ETL, dashboard">
+              <span class="flow-item">
+                <span class="flow-node" style="animation-delay:0s"><i class="fas fa-database" aria-hidden="true"></i></span>
+                <span class="flow-label">raw data</span>
+              </span>
+              <svg class="flow-link" width="40" height="10" viewBox="0 0 40 10" aria-hidden="true">
+                <line x1="0" y1="5" x2="40" y2="5" />
+              </svg>
+              <span class="flow-item">
+                <span class="flow-node" style="animation-delay:.4s"><i class="fas fa-filter" aria-hidden="true"></i></span>
+                <span class="flow-label">ETL</span>
+              </span>
+              <svg class="flow-link" width="40" height="10" viewBox="0 0 40 10" aria-hidden="true">
+                <line x1="0" y1="5" x2="40" y2="5" />
+              </svg>
+              <span class="flow-item">
+                <span class="flow-node" style="animation-delay:.8s"><i class="fas fa-table-cells-large" aria-hidden="true"></i></span>
+                <span class="flow-label flow-label--last">dashboard</span>
+              </span>
             </div>
 
             <div class="hero-cta">
@@ -156,6 +158,156 @@
               </a>
               <a class="btn btn-ghost" href="#contact"><i class="fas fa-paper-plane"></i> <span data-i18n="hero.talk">Falar comigo</span></a>
             </div>
+          </section>
+
+          <!-- ===== DASHBOARD DA CARREIRA (live BI report) ===== -->
+          <section class="section dash" id="dashboard">
+            <!-- shared sparkline gradient -->
+            <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+              <defs>
+                <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="dash-head">
+              <div class="head-left">
+                <span class="field-label">career analytics</span>
+                <h2 data-i18n="dash.title">Dashboard da carreira</h2>
+              </div>
+              <span class="dash-count"><b id="dashMatch">4</b>/4 <span data-i18n="dash.match">cargos correspondem</span></span>
+            </div>
+
+            <div class="slicers" id="slicers" role="group" aria-label="Slicers">
+              <span class="slicers-label">slicers</span>
+              <button type="button" class="slicer" data-tech="Power BI" aria-pressed="false">Power BI</button>
+              <button type="button" class="slicer" data-tech="SQL" aria-pressed="false">SQL</button>
+              <button type="button" class="slicer" data-tech="Python" aria-pressed="false">Python</button>
+              <button type="button" class="slicer" data-tech="ETL" aria-pressed="false">ETL</button>
+              <button type="button" class="slicer" data-tech="DAX" aria-pressed="false">DAX</button>
+              <button type="button" class="slicer" data-tech="Apache Airflow" aria-pressed="false">Apache Airflow</button>
+              <button type="button" class="slicer" data-tech="SSIS" aria-pressed="false">SSIS</button>
+              <button type="button" class="slicer" data-tech="AI / LLMs" aria-pressed="false">AI / LLMs</button>
+            </div>
+
+            <div class="kpi-grid" id="kpiGrid">
+              <div class="kpi">
+                <div class="kpi-label" data-i18n="kpi.years">Anos de experiência</div>
+                <div class="kpi-row">
+                  <div class="kpi-value" data-count="6" data-suffix="+">6<span class="suffix">+</span></div>
+                  <svg class="spark" viewBox="0 0 84 34" preserveAspectRatio="none">
+                    <polygon points="0,30 14,27 28,28 42,20 56,17 70,11 84,7 84,34 0,34" />
+                    <polyline points="0,30 14,27 28,28 42,20 56,17 70,11 84,7" />
+                    <circle cx="84" cy="7" r="2.5" />
+                  </svg>
+                </div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label" data-i18n="kpi.certs">Certificações</div>
+                <div class="kpi-row">
+                  <div class="kpi-value" data-count="5">5</div>
+                  <svg class="spark" viewBox="0 0 84 34" preserveAspectRatio="none">
+                    <polygon points="0,29 14,25 28,26 42,19 56,20 70,13 84,9 84,34 0,34" />
+                    <polyline points="0,29 14,25 28,26 42,19 56,20 70,13 84,9" />
+                    <circle cx="84" cy="9" r="2.5" />
+                  </svg>
+                </div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label" data-i18n="kpi.repos">Repositórios</div>
+                <div class="kpi-row">
+                  <div class="kpi-value" id="kpiRepos" data-count="12" data-suffix="+">12<span class="suffix">+</span></div>
+                  <svg class="spark" viewBox="0 0 84 34" preserveAspectRatio="none">
+                    <polygon points="0,31 14,29 28,23 42,24 56,16 70,14 84,6 84,34 0,34" />
+                    <polyline points="0,31 14,29 28,23 42,24 56,16 70,14 84,6" />
+                    <circle cx="84" cy="6" r="2.5" />
+                  </svg>
+                </div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label" data-i18n="kpi.companies">Empresas</div>
+                <div class="kpi-row">
+                  <div class="kpi-value" data-count="3">3</div>
+                  <svg class="spark" viewBox="0 0 84 34" preserveAspectRatio="none">
+                    <polygon points="0,28 14,27 28,24 42,22 56,21 70,15 84,12 84,34 0,34" />
+                    <polyline points="0,28 14,27 28,24 42,22 56,21 70,15 84,12" />
+                    <circle cx="84" cy="12" r="2.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-cols">
+              <!-- Proficiency bar chart -->
+              <div class="panel-card">
+                <div class="panel-head">
+                  <div>
+                    <span class="eyebrow">proficiência</span>
+                    <h3 data-i18n="dash.prof">Domínio por tecnologia</h3>
+                  </div>
+                  <span class="panel-meta">nível 0–100</span>
+                </div>
+                <div class="bars" id="profBars">
+                  <div class="bar-row"><span class="bar-name">Power BI</span><span class="bar-track"><span class="bar-fill" data-val="95" style="width:95%"></span></span><span class="bar-val">95</span></div>
+                  <div class="bar-row"><span class="bar-name">SQL</span><span class="bar-track"><span class="bar-fill" data-val="90" style="width:90%"></span></span><span class="bar-val">90</span></div>
+                  <div class="bar-row"><span class="bar-name">DAX</span><span class="bar-track"><span class="bar-fill" data-val="88" style="width:88%"></span></span><span class="bar-val">88</span></div>
+                  <div class="bar-row"><span class="bar-name">ETL</span><span class="bar-track"><span class="bar-fill" data-val="85" style="width:85%"></span></span><span class="bar-val">85</span></div>
+                  <div class="bar-row"><span class="bar-name">Python</span><span class="bar-track"><span class="bar-fill" data-val="80" style="width:80%"></span></span><span class="bar-val">80</span></div>
+                  <div class="bar-row"><span class="bar-name">SSIS</span><span class="bar-track"><span class="bar-fill" data-val="72" style="width:72%"></span></span><span class="bar-val">72</span></div>
+                  <div class="bar-row"><span class="bar-name">Apache Airflow</span><span class="bar-track"><span class="bar-fill" data-val="70" style="width:70%"></span></span><span class="bar-val">70</span></div>
+                  <div class="bar-row"><span class="bar-name">AI / LLMs</span><span class="bar-track"><span class="bar-fill" data-val="65" style="width:65%"></span></span><span class="bar-val">65</span></div>
+                </div>
+              </div>
+
+              <!-- Career timeline -->
+              <div class="panel-card">
+                <div class="panel-head">
+                  <div>
+                    <span class="eyebrow">trajetória</span>
+                    <h3 data-i18n="dash.timeline">Pipeline de carreira</h3>
+                  </div>
+                  <span class="panel-meta">linha do tempo</span>
+                </div>
+
+                <div class="tl-axis" aria-hidden="true">
+                  <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+                </div>
+
+                <div class="tl-rows" id="tlRows" aria-hidden="true">
+                  <div class="tl-row"><span class="tl-bar current" data-tech="Power BI,SQL,Python,ETL,DAX,Apache Airflow,AI / LLMs" style="left:70.8%;width:24.6%"><span class="tl-pulse"></span>BI &amp; Data</span></div>
+                  <div class="tl-row"><span class="tl-bar" data-tech="Power BI,SQL,Python,SSIS,DAX,Apache Airflow" style="left:66.7%;width:5.5%">Pleno</span></div>
+                  <div class="tl-row"><span class="tl-bar" data-tech="Power BI,SQL,ETL,DAX" style="left:26.4%;width:40.3%">Analista de BI — Jr</span></div>
+                  <div class="tl-row"><span class="tl-bar" data-tech="Power BI,SQL,SSIS" style="left:5.6%;width:20.8%">Técnico de BI</span></div>
+                </div>
+
+                <div class="tl-list" id="tlList">
+                  <div class="tl-item current" data-tech="Power BI,SQL,Python,ETL,DAX,Apache Airflow,AI / LLMs">
+                    <span class="tl-role"><span class="dot"></span>BI &amp; Data Analyst — Pleno</span>
+                    <span class="tl-period">Abr 2025 — Atual</span>
+                    <span class="tl-org">Complexo Industrial e Portuário do Pecém — CIPP</span>
+                  </div>
+                  <div class="tl-item" data-tech="Power BI,SQL,Python,SSIS,DAX,Apache Airflow">
+                    <span class="tl-role"><span class="dot"></span>Analista de BI — Pleno</span>
+                    <span class="tl-period">Jan 2025 — Abr 2025</span>
+                    <span class="tl-org">Lanlink Informática</span>
+                  </div>
+                  <div class="tl-item" data-tech="Power BI,SQL,ETL,DAX">
+                    <span class="tl-role"><span class="dot"></span>Analista de BI — Júnior</span>
+                    <span class="tl-period">Ago 2022 — Jan 2025</span>
+                    <span class="tl-org">Lanlink Informática</span>
+                  </div>
+                  <div class="tl-item" data-tech="Power BI,SQL,SSIS">
+                    <span class="tl-role"><span class="dot"></span>Técnico de BI — Júnior</span>
+                    <span class="tl-period">Mai 2021 — Ago 2022</span>
+                    <span class="tl-org">Lanlink Informática</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="dash-note" data-i18n="dash.note">built as a live BI report — the resume is the demo</p>
           </section>
 
           <!-- ===== EXPERIENCE (pipeline ETL) ===== -->
@@ -566,6 +718,7 @@
     </div>
 
     <script defer src="js/i18n.js"></script>
+    <script defer src="js/dashboard.js"></script>
     <script defer src="js/github.js"></script>
     <script defer src="js/blog.js"></script>
     <script defer src="js/easter-eggs.js"></script>

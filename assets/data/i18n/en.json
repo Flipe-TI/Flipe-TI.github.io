@@ -10,6 +10,11 @@
   "nav.contact": "Contact",
 
   "lbl.about": "dashboard · felipe.gabriel",
+  "dash.title": "Career dashboard",
+  "dash.match": "roles match",
+  "dash.prof": "Proficiency by technology",
+  "dash.timeline": "Career pipeline",
+  "dash.note": "built as a live BI report — the resume is the demo",
   "lbl.experience": "experience",
   "lbl.education": "education",
   "lbl.certs": "certifications",

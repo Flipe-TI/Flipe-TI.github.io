@@ -23,12 +23,12 @@
     .egg-ring{width:min(46vmin,320px);height:min(46vmin,320px);border-radius:50%;
       border:6px solid #d4af37;box-shadow:0 0 40px #d4af37,inset 0 0 30px rgba(212,175,55,.6);
       display:grid;place-items:center;text-align:center;color:#f6e6b3;
-      font-family:'Space Grotesk',serif;padding:2rem;animation:ringGlow 2.4s ease-in-out infinite alternate}
+      font-family:'Geist',serif;padding:2rem;animation:ringGlow 2.4s ease-in-out infinite alternate}
     @keyframes ringGlow{to{box-shadow:0 0 70px #ffcf40,inset 0 0 50px rgba(255,207,64,.8)}}
     .egg-ring span{font-size:.9rem;letter-spacing:.05em;line-height:1.5;font-style:italic}
     /* Star Wars crawl */
     .egg-crawl-wrap{perspective:400px;width:100%;height:100%;overflow:hidden;display:flex;justify-content:center}
-    .egg-crawl{margin-top:100vh;color:#ffd54a;font-family:'Space Grotesk',sans-serif;font-weight:600;
+    .egg-crawl{margin-top:100vh;color:#ffd54a;font-family:'Geist',sans-serif;font-weight:600;
       text-align:justify;max-width:44rem;transform:rotateX(28deg);transform-origin:50% 100%;
       animation:crawl 22s linear forwards}
     .egg-crawl h3{color:#ffd54a;font-size:2rem;text-align:center;margin-bottom:1.5rem}
