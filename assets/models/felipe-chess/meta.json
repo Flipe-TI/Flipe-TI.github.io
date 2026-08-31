@@ -2,10 +2,15 @@
   "encoding_version": "az-8x8x73-v1",
   "input_name": "board",
   "output_name": "policy",
-  "input_shape": [1, 18, 8, 8],
+  "input_shape": [
+    1,
+    18,
+    8,
+    8
+  ],
   "policy_size": 4672,
   "fixture": false,
-  "holdout_top1": 0.3149,
-  "holdout_top3": 0.4883,
-  "updated": "2026-08-30"
+  "holdout_top1": 0.3180851085388914,
+  "holdout_top3": 0.47659574670994537,
+  "updated": "2026-08-31"
 }
